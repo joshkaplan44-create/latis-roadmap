@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latis Intelligence Platform · Roadmap · June 2026 — February 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F0EDE6;
+  --bg-card: #FFFFFF;
+  --bg-card-soft: #FAF8F2;
+  --text-primary: #111110;
+  --text-secondary: #5F5E5A;
+  --text-tertiary: #888780;
+  --border: #E5E1D6;
+  --border-soft: #EFECE3;
+  --navy: #0D2240;
+  --purple: #7F77DD;
+  --purple-soft: #EEEDFE;
+  --purple-text: #3C3489;
+  --teal: #1D9E75;
+  --teal-soft: #E1F5EE;
+  --teal-text: #085041;
+  --amber: #BA7517;
+  --amber-soft: #FAEEDA;
+  --amber-text: #633806;
+  --gray: #888780;
+  --gray-soft: #F1EFE8;
+  --red-soft: #FCEBEB;
+  --red-text: #A32D2D;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.55; color: var(--text-primary); background: var(--bg); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.page { max-width: 1180px; margin: 0 auto; padding: 56px 48px 80px 48px; }
+header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 40px; }
+.meta { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; margin-bottom: 16px; }
+h1 { font-size: 32px; font-weight: 500; color: var(--navy); margin: 0 0 6px 0; letter-spacing: -0.01em; }
+h2 { font-size: 18px; font-weight: 400; color: var(--text-secondary); margin: 0 0 20px 0; }
+.intro { font-size: 15px; line-height: 1.65; color: var(--text-primary); margin: 0 0 14px 0; max-width: 920px; }
+.intro:last-child { margin-bottom: 0; }
+section { margin-bottom: 48px; }
+h3 { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin: 0 0 16px 0; padding-bottom: 8px; border-bottom: 1px solid var(--border-soft); }
+h3.major { font-size: 24px; font-weight: 500; letter-spacing: -0.005em; text-transform: none; color: var(--navy); margin: 0 0 22px 0; padding-bottom: 14px; border-bottom: 2px solid var(--navy); }
+h3.major .h-sub { display: block; font-size: 13px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--text-secondary); margin-top: 6px; }
+.timeline-card { background: var(--bg-card); border: 1px solid var(--border); padding: 28px 28px 20px 28px; }
+.timeline-card svg { display: block; width: 100%; }
+.legend { display: flex; gap: 24px; font-size: 12px; color: var(--text-secondary); margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border-soft); flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 8px; }
+.legend-swatch { width: 12px; height: 12px; border-radius: 2px; }
+.legend-swatch.dot { border-radius: 50%; }
+.legend-swatch.dia { width: 10px; height: 10px; transform: rotate(45deg); }
+.gates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gate { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--amber); padding: 14px 16px; }
+.gate-num { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-text); }
+.gate-name { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-top: 4px; line-height: 1.35; }
+.gate-date { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+.phase { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--gray); padding: 22px 24px; margin-bottom: 14px; break-inside: avoid; page-break-inside: avoid; }
+.phase.purple { border-left-color: var(--purple); }
+.phase.teal { border-left-color: var(--teal); }
+.phase.gray { border-left-color: var(--gray); }
+.phase-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-soft); flex-wrap: wrap; }
+.phase-num { font-size: 11px; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.06em; }
+.phase-name { font-size: 18px; font-weight: 500; color: var(--navy); }
+.phase-time { font-size: 13px; color: var(--text-secondary); margin-left: auto; font-weight: 400; }
+.phase-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 8px 32px; }
+.block-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 4px; }
+.block-body { font-size: 13.5px; color: var(--text-primary); line-height: 1.55; margin-bottom: 12px; }
+.block-body:last-child { margin-bottom: 0; }
+.block-body ul { margin: 0; padding-left: 18px; }
+.block-body li { margin-bottom: 4px; }
+.block-body li:last-child { margin-bottom: 0; }
+.streams { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.streams .phase { margin-bottom: 0; }
+.streams .block-body { margin-bottom: 0; }
+.risks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.risk-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--red-text); padding: 18px 20px; }
+.risk-stage { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--red-text); text-transform: uppercase; margin-bottom: 6px; }
+.risk-name { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px; }
+.risk-body { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+.callout { background: var(--purple-soft); border-left: 3px solid var(--purple); padding: 16px 20px; margin: 20px 0; font-size: 13.5px; color: var(--purple-text); line-height: 1.55; }
+.callout strong { font-weight: 600; }
+footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-tertiary); line-height: 1.6; }
+.waves { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+.wave-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--purple); padding: 12px 14px; }
+.wave-card.w2 { border-left-color: var(--amber); }
+.wave-card.w3 { border-left-color: var(--teal); }
+.wave-card.w4 { border-left-color: #D4537E; }
+.wave-num { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-primary); text-transform: uppercase; }
+.wave-time { font-size: 12px; font-weight: 500; color: var(--text-primary); margin-top: 4px; }
+.wave-desc { font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.45; }
+.filter-bar { display: flex; gap: 12px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); }
+.filter-bar label { font-size: 10px; color: var(--text-tertiary); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 4px; }
+.filter-bar select, .filter-bar input { font-family: inherit; font-size: 12.5px; padding: 6px 10px; border: 1px solid var(--border); background: var(--bg-card-soft); color: var(--text-primary); border-radius: 4px; }
+.filter-bar select { cursor: pointer; }
+.filter-bar input { min-width: 200px; }
+.filter-reset { font-family: inherit; font-size: 11px; color: var(--text-secondary); padding: 6px 12px; border: 1px solid var(--border); background: transparent; border-radius: 4px; cursor: pointer; letter-spacing: 0.04em; }
+.filter-reset:hover { background: var(--bg-card-soft); }
+.filter-count { font-size: 11px; color: var(--text-tertiary); margin-left: auto; letter-spacing: 0.04em; }
+.modules { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); margin-bottom: 16px; }
+.modules th { text-align: left; padding: 12px 12px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-tertiary); text-transform: uppercase; background: var(--bg-card-soft); border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
+.modules th:hover { color: var(--text-secondary); background: #F4F0E5; }
+.modules th.sort-asc::after { content: " ↑"; color: var(--amber); }
+.modules th.sort-desc::after { content: " ↓"; color: var(--amber); }
+.modules td { padding: 12px; border-bottom: 1px solid var(--border-soft); color: var(--text-primary); vertical-align: top; line-height: 1.5; font-size: 12.5px; }
+.modules tr:last-child td { border-bottom: none; }
+.modules tr.hidden { display: none; }
+.modules td.module-name { font-weight: 500; }
+.modules td.module-notes { color: var(--text-secondary); font-size: 12px; line-height: 1.5; }
+.modules td.module-id { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--text-tertiary); white-space: nowrap; }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
+.pill.data-1 { background: #EAF3DE; color: #27500A; }
+.pill.data-mixed { background: #FAEEDA; color: #854F0B; }
+.pill.data-full { background: #FCEBEB; color: #791F1F; }
+.pill.role-spectrum { background: #E1F5EE; color: #085041; }
+.pill.role-brand { background: #EEEDFE; color: #3C3489; }
+.pill.role-both { background: var(--gray-soft); color: var(--text-primary); }
+.pill.role-partner { background: #FAECE7; color: #712B13; }
+.pill.role-internal { background: var(--gray-soft); color: var(--text-secondary); }
+.pill.role-all { background: #FBEAF0; color: #4B1528; }
+.pill.q3-26, .pill.q4-26 { background: #EEEDFE; color: #3C3489; }
+.pill.q1-27 { background: #E1F5EE; color: #085041; }
+.pill.q-cont { background: var(--gray-soft); color: var(--text-secondary); }
+.module-legend { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-tertiary); margin-bottom: 8px; flex-wrap: wrap; }
+.module-legend strong { color: var(--text-secondary); font-weight: 500; margin-right: 4px; }
+.intro-sub { font-size: 14px; line-height: 1.6; color: var(--text-primary); margin: 0 0 24px 0; max-width: 920px; }
+.uc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 6px; }
+.uc-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--gray); padding: 16px 18px; display: flex; flex-direction: column; cursor: pointer; user-select: none; transition: background 150ms ease, box-shadow 150ms ease; outline: none; }
+.uc-card:hover { background: var(--bg-card-soft); }
+.uc-card:focus { background: var(--bg-card-soft); }
+.uc-card.active { background: var(--bg-card-soft); }
+.uc-card.uc1.active { box-shadow: 0 0 0 2px #D85A30 inset; }
+.uc-card.uc2.active { box-shadow: 0 0 0 2px #185FA5 inset; }
+.uc-card.uc3.active { box-shadow: 0 0 0 2px #D4537E inset; }
+.uc-card.uc4.active { box-shadow: 0 0 0 2px #7F77DD inset; }
+.uc-card.uc5.active { box-shadow: 0 0 0 2px #1D9E75 inset; }
+.uc-hint { font-size: 11px; color: var(--text-tertiary); margin: 12px 0 6px 0; letter-spacing: 0.02em; }
+.uc-hint .clear-link { color: var(--amber); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; margin-left: 8px; }
+.uc-card.uc1 { border-left-color: #D85A30; }
+.uc-card.uc2 { border-left-color: #185FA5; }
+.uc-card.uc3 { border-left-color: #D4537E; }
+.uc-card.uc4 { border-left-color: #7F77DD; }
+.uc-card.uc5 { border-left-color: #1D9E75; }
+.uc-num { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-tertiary); text-transform: uppercase; }
+.uc-name { font-size: 15px; font-weight: 500; color: var(--navy); margin: 4px 0 10px 0; line-height: 1.3; }
+.uc-deliver { font-size: 12.5px; color: var(--text-primary); line-height: 1.5; margin-bottom: 10px; flex-grow: 1; }
+.uc-meta { font-size: 11.5px; color: var(--text-secondary); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-soft); line-height: 1.45; }
+.uc-meta-label { display: block; color: var(--text-tertiary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 9px; margin-bottom: 2px; margin-top: 6px; }
+.uc-meta-label:first-child { margin-top: 0; }
+.dod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.dod-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--teal); padding: 18px 20px; break-inside: avoid; }
+.dod-card-title { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border-soft); }
+.dod-card ul { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.55; color: var(--text-primary); }
+.dod-card li { margin-bottom: 5px; }
+.ctx-block { background: var(--bg-card); border: 1px solid var(--border); padding: 22px 24px; margin-bottom: 14px; break-inside: avoid; }
+.ctx-num { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--text-tertiary); text-transform: uppercase; }
+.ctx-title { font-size: 17px; font-weight: 500; color: var(--navy); margin: 4px 0 12px 0; }
+.ctx-body { font-size: 13.5px; line-height: 1.6; color: var(--text-primary); }
+.ctx-body p { margin: 0 0 10px 0; }
+.ctx-body p:last-child { margin-bottom: 0; }
+.ctx-body ul { margin: 0 0 10px 0; padding-left: 18px; }
+.ctx-body li { margin-bottom: 4px; }
+.ctx-quote { font-style: italic; color: var(--purple-text); background: var(--purple-soft); padding: 12px 16px; border-radius: 4px; margin: 8px 0; font-size: 13px; line-height: 1.5; }
+@media print {
+  body { background: #FFFFFF; -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+  .page { max-width: none; padding: 0; }
+  section { margin-bottom: 24px; }
+  .phase, .gate, .risk-card, .timeline-card, .callout, .dod-card, .ctx-block { break-inside: avoid; page-break-inside: avoid; }
+  .filter-bar { display: none; }
+  .modules tr.hidden { display: table-row; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 15px; }
+  h3.major { font-size: 20px; }
+  @page { size: letter portrait; margin: 0.5in; }
+}
+@media (max-width: 1100px) {
+  .uc-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1000px) {
+  .page { padding: 32px 24px; }
+  .gates { grid-template-columns: repeat(2, 1fr); }
+  .phase-body { grid-template-columns: 1fr; }
+  .streams { grid-template-columns: 1fr; }
+  .risks { grid-template-columns: 1fr; }
+  .waves { grid-template-columns: 1fr 1fr; }
+  .uc-grid { grid-template-columns: 1fr 1fr; }
+  .dod-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) { .gates { grid-template-columns: 1fr; } .waves { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+<div class="meta">For internal use · Charter Intelligence Ventures × Blend360 · Updated June 16, 2026</div>
+<h1>Latis Intelligence Platform</h1>
+<h2>App development roadmap · June 2026 — February 2027</h2>
+<p class="intro">Nine stages take Latis Intelligence Platform from current state through external brand-direct pilot and Phase 2 activation paths for the other use cases by February 2027. Latis is the unified platform; the <strong>Sales Deck Generator</strong> is one feature within it, used by Spectrum reps to produce client-facing sales decks. Brand-direct customers will access Latis <strong>without</strong> the Sales Deck Generator — every other intelligence function remains available to them. The split is governed by role-based access control (RBAC) in Stage 6.</p>
+<p class="intro">Stages 1 through 4 all complete by end of July so <strong>Spectrum pilot and internal feedback begins August 1, 2026</strong>. Stages 2 and 3 run <strong>concurrently</strong> from July onward — Stage 3 (feature lock + DoD signoff + LLM grounding) runs longer than Stage 2 (AWS migration). Stages 7 and 8 run <strong>concurrently</strong> from November 2026 onward — Stage 8 (Brand-Direct Pilot) runs longer than Stage 7 (Phase 1 data-dependent features). Two continuous streams — user testing and QA — run alongside every stage. Five critical milestones gate the program.</p>
+</header>
+
+<section>
+<h3 class="major">The five Latis use cases
+<span class="h-sub">Latis Intelligence Platform serves five go-to-market use cases. Each has a distinct buyer, consumption mechanism, and roadmap track. The program stages below describe how we build everything; this overview shows what we are delivering for each use case.</span>
+</h3>
+<div class="uc-hint">Click any card to filter the module table below to that use case. <span class="clear-link" id="uc-clear">Show all use cases</span></div>
+<div class="uc-grid" id="uc-grid">
+
+<div class="uc-card uc1">
+<div class="uc-num">Use case 1</div>
+<div class="uc-name">AI Model Training</div>
+<div class="uc-deliver">Latis Embeddings — daily-refreshed household behavioral vectors — consumed by DSPs and AI model teams via API microservice (sub-50ms p99) or daily bulk S3 push to enrich bidding models, recommendation engines, and LLM training.</div>
+<div class="uc-meta">
+<span class="uc-meta-label">Buyer</span>DSP ML / data engineering teams · AI model teams (Amazon DSP, Anthropic)
+<span class="uc-meta-label">Plan</span>Embedding Catalog · API &amp; Bulk Delivery Console · Backtest Workbench
+<span class="uc-meta-label">Timing</span>Stage 9 · Dec 2026 – Feb 2027 (parallel track)
+</div>
+</div>
+
+<div class="uc-card uc2">
+<div class="uc-num">Use case 2</div>
+<div class="uc-name">Data Collaboration</div>
+<div class="uc-deliver">Latis Clean Room — Snowflake zero-copy environment where partners bring 1P data; we enrich with Intelligence Features and 3P outcome data; deliver to the partner's identity namespace.</div>
+<div class="uc-meta">
+<span class="uc-meta-label">Buyer</span>RMN product teams · agency partners (Walmart Connect)
+<span class="uc-meta-label">Plan</span>Clean Room Project Setup · 1P Ingestion · Enrichment Configurator · Identity Translation · Performance Loop
+<span class="uc-meta-label">Timing</span>Stage 9 · Dec 2026 – Feb 2027 (parallel track)
+</div>
+</div>
+
+<div class="uc-card uc3">
+<div class="uc-num">Use case 3</div>
+<div class="uc-name">Agentic Workflow Enhancement</div>
+<div class="uc-deliver">Latis Intelligence Features exposed via Model Context Protocol (MCP) for AI agents to query at decision time — enriching routing, personalization, and recommendation choices.</div>
+<div class="uc-meta">
+<span class="uc-meta-label">Buyer</span>AI product / platform engineering teams (retail and device-based agents)
+<span class="uc-meta-label">Plan</span>MCP Endpoint Registry · Feature API Browser · Agent Auth, Quota &amp; SLO Monitor
+<span class="uc-meta-label">Timing</span>Stage 9 · Dec 2026 – Feb 2027 (parallel track)
+</div>
+</div>
+
+<div class="uc-card uc4">
+<div class="uc-num">Use case 4</div>
+<div class="uc-name">Consumer Insights — the app</div>
+<div class="uc-deliver">The Latis app at latis.blend360.app. Self-service audience discovery, insights, recommended plays, audience builder &amp; library, plus the Sales Deck Generator for Spectrum reps. The front door to every other use case.</div>
+<div class="uc-meta">
+<span class="uc-meta-label">Buyer</span>Brand analytics &amp; insights teams · internal Spectrum reps
+<span class="uc-meta-label">Plan</span>Baseline lock + Sales Deck on 1% sample (Stage 3) · Phase 1 full-data features in Stage 7 (BR-09/11/12/14, AR-08, DF-01..07) · Phase 2 features (FF-01/02/03) deferred beyond roadmap window
+<span class="uc-meta-label">Timing</span>Stage 3 (Jun–Jul 2026) → Stage 7 (Nov–Dec 2026)
+</div>
+</div>
+
+<div class="uc-card uc5">
+<div class="uc-num">Use case 5</div>
+<div class="uc-name">Managed Service Audience-Based Media</div>
+<div class="uc-deliver">Latis builds the audiences; Spectrum Reach runs campaigns on Charter linear + CTV inventory through Freewheel / Radar. Client never touches Latis directly — Spectrum Reach manages the engagement.</div>
+<div class="uc-meta">
+<span class="uc-meta-label">Buyer</span>Brands and agencies purchasing through Spectrum Reach beta program
+<span class="uc-meta-label">Plan</span>Activation Push · Campaign Brief Builder · Test &amp; Control · Suppression Manager · Performance Pull-Back
+<span class="uc-meta-label">Timing</span>Stage 9 · Dec 2026 – Feb 2027 (parallel track)
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h3>Timeline</h3>
+<div class="timeline-card">
+<svg width="100%" viewBox="0 0 1080 760" role="img" preserveAspectRatio="xMidYMid meet">
+<title>Latis Intelligence Platform roadmap timeline</title>
+<desc>Gantt covering June 2026 through February 2027. Nine stages. Stages 2 and 3 run concurrently. Stages 7 and 8 run concurrently. Stage 9 builds Phase 2 paths for UC1, UC2, UC3, UC5.</desc>
+<text x="584" y="20" font-size="11" fill="#888780" font-family="Plus Jakarta Sans" text-anchor="middle">2026</text>
+<text x="926" y="20" font-size="11" fill="#888780" font-family="Plus Jakarta Sans" text-anchor="middle">2027</text>
+<g font-size="11" fill="#888780" font-family="Plus Jakarta Sans" text-anchor="middle">
+<text x="356" y="46">Jun</text><text x="432" y="46">Jul</text><text x="508" y="46">Aug</text><text x="584" y="46">Sep</text><text x="660" y="46">Oct</text><text x="736" y="46">Nov</text><text x="812" y="46">Dec</text><text x="888" y="46">Jan</text><text x="964" y="46">Feb</text>
+</g>
+<line x1="318" y1="56" x2="1002" y2="56" stroke="#D3D1C7" stroke-width="0.5"/>
+<line x1="394" y1="60" x2="394" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<line x1="470" y1="60" x2="470" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<line x1="546" y1="60" x2="546" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<line x1="622" y1="60" x2="622" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<line x1="698" y1="60" x2="698" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<line x1="774" y1="60" x2="774" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<line x1="850" y1="32" x2="850" y2="588" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="2,3"/>
+<line x1="926" y1="60" x2="926" y2="588" stroke="#EFECE3" stroke-width="0.5"/>
+<g font-family="Plus Jakarta Sans">
+<text x="20" y="82" font-size="12" fill="#5F5E5A" font-weight="500">1 · Audit · ground truth</text>
+<rect x="318" y="68" width="76" height="22" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="318" y="106" font-size="10" fill="#5F5E5A">Inventory current app · validate 1% boundaries · known-issues backlog · Foundations review</text>
+<text x="20" y="128" font-size="12" fill="#5F5E5A" font-weight="500">2 · Blend → Spectrum AWS migration</text>
+<rect x="394" y="114" width="76" height="22" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="394" y="152" font-size="10" fill="#5F5E5A">Infosec review · IAM/VPC · Snowflake connectivity · cutover by end of July</text>
+<text x="20" y="174" font-size="12" fill="#5F5E5A" font-weight="500">3 · Lock features · DoD · LLM grounding (concurrent with 2, longer)</text>
+<rect x="318" y="160" width="152" height="22" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="318" y="198" font-size="10" fill="#5F5E5A">Feature freeze · DoD signoff · LLM grounding verified · approved positioning lock · UX fixes shipped</text>
+<text x="20" y="220" font-size="12" fill="#5F5E5A" font-weight="500">4 · Full data footprint into app</text>
+<rect x="394" y="206" width="76" height="22" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="394" y="244" font-size="10" fill="#5F5E5A">Snowflake gold layer · de-sampled data on every surface · source labels · ready by Aug 1</text>
+<text x="20" y="266" font-size="12" fill="#5F5E5A" font-weight="500">5 · Spectrum pilot · internal feedback</text>
+<rect x="470" y="252" width="152" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="470" y="290" font-size="10" fill="#5F5E5A">Starts Aug 1 · Auth live · 3 named + ~10 reps · weekly feedback · session save</text>
+<text x="20" y="312" font-size="12" fill="#5F5E5A" font-weight="500">6 · Roles &amp; RBAC</text>
+<rect x="622" y="298" width="76" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="622" y="336" font-size="10" fill="#5F5E5A">Role schema · IDP integration · Sales Deck Generator gated to Spectrum role · adversarial test</text>
+<text x="20" y="358" font-size="12" fill="#5F5E5A" font-weight="500">7 · Phase 1 data-dependent features</text>
+<rect x="698" y="344" width="152" height="22" rx="2" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.8"/>
+<text x="698" y="382" font-size="10" fill="#5F5E5A">Phase 1 UC4 features unlocked by full data: BR-09 · BR-11 · BR-12 · BR-14 · AR-08 · DF-01..07</text>
+<text x="20" y="404" font-size="12" fill="#5F5E5A" font-weight="500">8 · Brand-direct pilot (concurrent with 7, longer)</text>
+<rect x="698" y="390" width="304" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="698" y="428" font-size="10" fill="#5F5E5A">First 2 brand-direct customers (Dec) · usage metrics · expand to 5+ brands by Feb 2027</text>
+<text x="20" y="450" font-size="12" fill="#5F5E5A" font-weight="500">9 · Phase 2 features for UC1, UC2, UC3, UC5</text>
+<rect x="774" y="436" width="228" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="774" y="474" font-size="10" fill="#5F5E5A">UC1 embeddings · UC2 clean room · UC3 MCP · UC5 Spectrum Reach activation — parallel build</text>
+
+<line x1="318" y1="490" x2="1002" y2="490" stroke="#EFECE3" stroke-width="0.5"/>
+
+<text x="20" y="512" font-size="12" fill="#5F5E5A" font-weight="500">User testing</text>
+<rect x="394" y="498" width="608" height="18" rx="2" fill="#F1EFE8" stroke="#888780" stroke-width="0.5" stroke-dasharray="3,2"/>
+<text x="394" y="532" font-size="10" fill="#5F5E5A">Weekly sessions · ticket triage · feature requests fed into backlog · regression spot-checks</text>
+
+<text x="20" y="550" font-size="12" fill="#5F5E5A" font-weight="500">LLM &amp; data QA</text>
+<rect x="318" y="536" width="684" height="18" rx="2" fill="#F1EFE8" stroke="#888780" stroke-width="0.5" stroke-dasharray="3,2"/>
+<text x="318" y="570" font-size="10" fill="#5F5E5A">Golden test set runs · reconciliation queries · drift alerts · model version regression gates</text>
+</g>
+<g font-family="Plus Jakarta Sans" font-size="10" font-weight="600" fill="#BA7517">
+<polygon points="470,60 474,64 470,68 466,64" fill="#BA7517"/><text x="478" y="68" fill="#633806">M1</text>
+<polygon points="622,60 626,64 622,68 618,64" fill="#BA7517"/><text x="630" y="68" fill="#633806">M2</text>
+<polygon points="698,60 702,64 698,68 694,64" fill="#BA7517"/><text x="706" y="68" fill="#633806">M3</text>
+<polygon points="850,60 854,64 850,68 846,64" fill="#BA7517"/><text x="858" y="68" fill="#633806">M4</text>
+<polygon points="1002,60 1006,64 1002,68 998,64" fill="#BA7517"/><text x="974" y="68" fill="#633806" text-anchor="end">M5</text>
+</g>
+
+<line x1="20" y1="600" x2="1060" y2="600" stroke="#D3D1C7" stroke-width="0.5"/>
+<text x="20" y="616" font-family="Plus Jakarta Sans" font-size="11" fill="#5F5E5A" font-weight="500">Use case feature-complete</text>
+
+<g font-family="Plus Jakarta Sans">
+<polygon points="466,630 474,630 470,644" fill="#534AB7"/>
+<line x1="470" y1="644" x2="470" y2="655" stroke="#534AB7" stroke-width="0.8"/>
+<text x="470" y="667" font-size="11" fill="#3C3489" text-anchor="middle" font-weight="600">UC4 v1 baseline</text>
+<text x="470" y="680" font-size="9" fill="#888780" text-anchor="middle">End Jul · Stages 1–4 done</text>
+</g>
+
+<g font-family="Plus Jakarta Sans">
+<polygon points="846,630 854,630 850,644" fill="#0F6E56"/>
+<line x1="850" y1="644" x2="850" y2="687" stroke="#0F6E56" stroke-width="0.8"/>
+<text x="850" y="699" font-size="11" fill="#085041" text-anchor="middle" font-weight="600">UC4 Phase 1 complete</text>
+<text x="850" y="712" font-size="9" fill="#888780" text-anchor="middle">End Dec · Stage 7 done · Reach team ready</text>
+</g>
+
+<g font-family="Plus Jakarta Sans">
+<polygon points="998,630 1006,630 1002,644" fill="#993C1D"/>
+<line x1="1002" y1="644" x2="1002" y2="655" stroke="#993C1D" stroke-width="0.8"/>
+<text x="1002" y="667" font-size="11" fill="#4A1B0C" text-anchor="end" font-weight="600">UC1 · UC2 · UC3 · UC5</text>
+<text x="1002" y="680" font-size="9" fill="#888780" text-anchor="end">End Feb · Stage 9 done</text>
+</g>
+</svg>
+<div class="legend">
+<div class="legend-item"><div class="legend-swatch" style="background:#7F77DD"></div>Internal build (Blend + Charter)</div>
+<div class="legend-item"><div class="legend-swatch" style="background:#1D9E75"></div>External readiness &amp; brand-direct rollout</div>
+<div class="legend-item"><div class="legend-swatch" style="background:#888780"></div>Future / continuous</div>
+<div class="legend-item"><div class="legend-swatch dia" style="background:#BA7517"></div>Critical milestone (M1–M5)</div>
+</div>
+</div>
+</section>
+
+<section>
+<h3>Access model · Sales Deck Generator and broader Latis</h3>
+<div class="callout">
+<strong>Latis Intelligence Platform</strong> is the unified product. The <strong>Sales Deck Generator</strong> is one feature within Latis, used by Spectrum reps to build client-facing decks. Stage 6 introduces RBAC so the platform can serve three distinct user types: <strong>Spectrum reps</strong> (full Latis access including the Sales Deck Generator), <strong>agency partners</strong> (Latis intelligence functions plus portfolio view; no Sales Deck Generator), and <strong>brand-direct customers</strong> (Latis intelligence functions scoped to their own brand; no Sales Deck Generator). Brand-direct users do not need to build decks for themselves — they need every other capability Latis provides.
+</div>
+</section>
+
+<section>
+<h3>Critical milestones</h3>
+<div class="gates">
+<div class="gate"><div class="gate-num">M1</div><div class="gate-name">Stages 1–4 complete · ready for Spectrum pilot</div><div class="gate-date">End of July 2026 · Spectrum feedback opens Aug 1</div></div>
+<div class="gate"><div class="gate-num">M2</div><div class="gate-name">Spectrum pilot complete · feedback captured</div><div class="gate-date">End of September 2026</div></div>
+<div class="gate"><div class="gate-num">M3</div><div class="gate-name">RBAC verified</div><div class="gate-date">End of October 2026</div></div>
+<div class="gate"><div class="gate-num">M4</div><div class="gate-name">UC4 Phase 1 features complete · Reach team ready</div><div class="gate-date">End of December 2026</div></div>
+<div class="gate"><div class="gate-num">M5</div><div class="gate-name">Phase 2 UC1 / UC2 / UC3 / UC5 paths in pilot</div><div class="gate-date">End of February 2027</div></div>
+</div>
+</section>
+
+<section>
+<h3>Phase detail</h3>
+<div class="phase purple">
+<div class="phase-head"><div class="phase-num">Stage 1</div><div class="phase-name">Audit · ground truth</div><div class="phase-time">June 2026</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Inventory the current app state, validate where the 1% sample is sufficient versus where full data is needed, and produce a ground-truth document of what is actually built, what works, and what is known broken before any further work starts.</div><div class="block-label">Exit gate</div><div class="block-body">Ground-truth audit document signed off by Charter and Blend.</div><div class="block-label">Risk</div><div class="block-body">Low. Internal sprint with discretionary timing within June.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>Full app feature inventory — every page, component, and data dependency catalogued</li><li>1% sample validation — features that work reliably on the sample versus those that need full data documented</li><li>Known issues backlog with priority and root cause</li><li>Charter Foundations team review of current numbers and labels</li><li>LLM grounding state documented per surface</li></ul></div></div>
+</div>
+</div>
+<div class="phase purple">
+<div class="phase-head"><div class="phase-num">Stage 2</div><div class="phase-name">Blend → Spectrum AWS migration</div><div class="phase-time">July 2026 (concurrent with Stage 3)</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Migrate Latis from Blend's AWS environment to Spectrum's AWS environment to close the security gap before any external user accesses the platform.</div><div class="block-label">Exit gate</div><div class="block-body">Infosec sign-off and successful cutover verification.</div><div class="block-label">Risk</div><div class="block-body">Spectrum infosec timeline is outside the build team's control. Buffer the schedule accordingly.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>Spectrum infosec review completed</li><li>IAM, VPC, secrets management, and network configuration provisioned in Spectrum AWS</li><li>Snowflake connectivity from Spectrum AWS verified</li><li>App cutover with no functional change to the user experience</li></ul></div></div>
+</div>
+</div>
+<div class="phase purple">
+<div class="phase-head"><div class="phase-num">Stage 3</div><div class="phase-name">Lock app features · DoD signoff · LLM grounding</div><div class="phase-time">June – July 2026 (concurrent with Stages 1–2, longer)</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Lock the application features as they exist, complete the Definition of Done signoff for those features, and verify LLM grounding so the platform has a clean foundation before the full data lights up the Phase 1 enhancement work.</div><div class="block-label">Exit gate</div><div class="block-body">DoD signed off by Charter and Blend; LLM grounding verified against the golden test set; approved positioning language verified verbatim in every output.</div><div class="block-label">Risk</div><div class="block-body">Feature scope creep — stay disciplined about not adding features in this window. New requests get deferred to Stage 7 or Stage 9.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>Feature freeze on the current app surface</li><li>DoD checklist closed for every page</li><li>LLM grounding verified against the golden test set</li><li>Approved positioning language verified verbatim in every output</li><li>UX fixes from the current feedback cycle shipped</li><li>1% sample representativeness validated for audience discovery, category skew, co-visits, and trend direction</li></ul></div></div>
+</div>
+</div>
+<div class="phase purple">
+<div class="phase-head"><div class="phase-num">Stage 4</div><div class="phase-name">Full data footprint into app</div><div class="phase-time">July 2026 (completes before Aug 1)</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Replace the 1% sample with full-footprint, de-sampled data for the Latis surfaces that require precision. This is the unlock for Stage 7's Phase 1 data-dependent features.</div><div class="block-label">Exit gate</div><div class="block-body">Numbers consistent across every surface and reconcile to the Foundations data source of truth.</div><div class="block-label">Risk</div><div class="block-body">Foundations data delivery schedule. Sequence the cutover around their availability.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>Snowflake gold layer populated by Foundations team</li><li>De-sampled household counts, audience sizes, and reach figures across every client-facing surface</li><li>Source attribution labels with as-of dates on every data-bearing page</li><li>1% sample retained where directional is sufficient, with extrapolation methodology disclosed inline</li><li>Cross-page reconciliation verified for every curated brand</li></ul></div></div>
+</div>
+</div>
+<div class="phase teal">
+<div class="phase-head"><div class="phase-num">Stage 5</div><div class="phase-name">Spectrum pilot &amp; internal feedback</div><div class="phase-time">August 1 – September 2026</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Put Latis in front of Spectrum reps in a controlled setting to validate utility before broader rollout. By this point the app is feature-locked (Stage 3) and full data is flowing (Stage 4) so reps are exercising the real product, not a placeholder.</div><div class="block-label">Exit gate</div><div class="block-body">Pilot users confirm Latis changes how they prepare for or run advertiser meetings.</div><div class="block-label">Risk</div><div class="block-body">Reps don't use it. Mitigation is a tight weekly feedback loop and willingness to shelve features that don't drive usage.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>Auth layer live; public URL closed</li><li>Three named pilot users plus roughly 10 additional Spectrum reps onboarded</li><li>Weekly feedback cadence with documented intake</li><li>Server-side session save with shareable URL working</li><li>Feedback feeds into Stage 7 (Phase 1 features) priority backlog</li></ul></div></div>
+</div>
+</div>
+<div class="phase teal">
+<div class="phase-head"><div class="phase-num">Stage 6</div><div class="phase-name">Roles &amp; role-based access control</div><div class="phase-time">October 2026</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Build role-based access control so different user types see only the Latis features appropriate for their role. The Sales Deck Generator becomes a Spectrum-only feature here; all other Latis intelligence functions remain available to agencies and brand-direct customers under their respective access scopes.</div><div class="block-label">Exit gate</div><div class="block-body">Adversarial testing confirms no brand role can see another brand's data, and the Sales Deck Generator is unreachable to any non-Spectrum role.</div><div class="block-label">Risk</div><div class="block-body">One brand seeing another brand's data ends the program. Treat RBAC verification as a hard gate, not a soft milestone.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>Three roles minimum: <strong>Spectrum rep</strong> (full Latis access including Sales Deck Generator), <strong>agency partner</strong> (Latis intelligence + portfolio view; no Sales Deck Generator), <strong>brand-direct user</strong> (Latis intelligence scoped to own brand only; no Sales Deck Generator)</li><li>IDP integration with Spectrum's identity provider</li><li>Sales Deck Generator gated behind the Spectrum role; not visible in nav for other roles</li><li>Audit logging of all role-gated access decisions</li><li>Adversarial testing of role boundaries by an independent reviewer</li></ul></div></div>
+</div>
+</div>
+<div class="phase" style="border-left-color:#BA7517">
+<div class="phase-head"><div class="phase-num">Stage 7</div><div class="phase-name">Phase 1 data-dependent feature incorporation</div><div class="phase-time">November – December 2026 (concurrent with Stage 8)</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Ship the Phase 1 UC4 features we couldn't deliver during initial app development because they require the full Charter footprint. These were always intended for Phase 1 but were blocked on the 1% sample. They land between Stage 4 (full data go-live) and the Reach team's full-feature handover.</div><div class="block-label">Exit gate</div><div class="block-body">All 11 Phase 1 full-data features ship (BR-09, BR-11, BR-12, BR-14, AR-08, DF-01 through DF-07). Each carries Foundations-validated values, source attribution, and feature-completeness sign-off.</div><div class="block-label">Risk</div><div class="block-body">Stage 4 (full data) timing slip — every day Foundations data delivery slips, this stage slips. DF-01 (time-series backbone) is the longest pole; sequence first.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>BR-09 Live Welcome Counters wired to real Foundations values</li><li>BR-11 Incremental Reach Proof (matched against 1P TV exposure)</li><li>BR-12 Industry / Agency Portfolio View (rolls up across full brand library)</li><li>BR-14 Combined Signal Insights (web + device + video)</li><li>AR-08 Standardized Metric Definitions &amp; Tooltips</li><li>DF-01 Time-Series Household Behavior backbone</li><li>DF-02 Real Household Journey Visualization (replaces mock)</li><li>DF-03 Video Viewership Integration</li><li>DF-04 Device / CUJO Integration</li><li>DF-05 Frequency &amp; Recency Metrics</li><li>DF-06 Competitive Migration &amp; Lapsed-User Tracking</li><li>DF-07 Journey / Vector-Space Visualization tab</li></ul></div></div>
+</div>
+</div>
+<div class="phase teal">
+<div class="phase-head"><div class="phase-num">Stage 8</div><div class="phase-name">Brand-direct pilot</div><div class="phase-time">November 2026 – February 2027 (concurrent with Stage 7, longer)</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Onboard external brand-direct customers to Latis Intelligence Platform under RBAC. They get every intelligence function — audience analysis, insights, your best play, summary — scoped to their own brand. The Sales Deck Generator is intentionally absent for this audience. The pilot starts as Phase 1 features are landing (Stage 7) and continues through February as the cohort expands.</div><div class="block-label">Exit gate</div><div class="block-body">Two brand-direct customers report measurable value, with success defined in advance by Charter sales leadership; cohort expanded to 5+ brand-direct customers.</div><div class="block-label">Risk</div><div class="block-body">Brand-direct usage patterns differ from internal Spectrum-rep usage. Plan capacity to triage feature requests that diverge from the internal pilot.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li>First two brand-direct customers onboarded with dedicated role-gated logins</li><li>Per-brand usage metrics tracked (logins, sessions, time-in-app, feature engagement)</li><li>Feedback loop with brand product owners</li><li>Expansion to five or more brand-direct customers once initial value is demonstrated</li><li>Production hardening for any feature requests that pass triage</li></ul></div></div>
+</div>
+</div>
+<div class="phase teal">
+<div class="phase-head"><div class="phase-num">Stage 9</div><div class="phase-name">Phase 2 feature development · UC1, UC2, UC3, UC5</div><div class="phase-time">December 2026 – February 2027</div></div>
+<div class="phase-body">
+<div><div class="block-label">Goal</div><div class="block-body">Build out the activation paths for the other use cases beyond UC4 — AI Model Training (UC1), Data Collaboration (UC2), Agentic Workflow Enhancement (UC3), and Managed Service Audience-Based Media via Spectrum Reach (UC5). Each use case gets a working pilot integration by end of February 2027.</div><div class="block-label">Exit gate</div><div class="block-body">At least one partner per use case is in pilot or integration testing: one DSP on embeddings (UC1), one RMN in Clean Room (UC2), one AI platform on MCP (UC3), one Spectrum Reach managed-service campaign live (UC5).</div><div class="block-label">Risk</div><div class="block-body">Four parallel build tracks. If staffing constrains to fewer tracks, sequence UC2 first (highest commercial value), then UC5, then UC1, then UC3.</div></div>
+<div><div class="block-label">Deliverables</div><div class="block-body"><ul><li><strong>UC1</strong> — Embedding Catalog, API &amp; Bulk Delivery Console, Backtest Workbench</li><li><strong>UC2</strong> — Clean Room Project Setup, 1P Data Ingestion &amp; Validation, Enrichment Configurator, Identity Translation Service, Campaign Performance Loop</li><li><strong>UC3</strong> — MCP Endpoint Registry, Feature API Browser, Agent Auth · Quota · SLO Monitor</li><li><strong>UC5</strong> — Activation Push to Spectrum Reach, Campaign Brief Builder, Test &amp; Control Configurator, Suppression &amp; Win-Back Manager, Performance Pull-Back</li></ul></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<h3 class="major">Downstream platform modules
+<span class="h-sub">Sortable, filterable inventory of every module across Stages 1–9. Notes are written to support an AI prompt for the build — enough context to scope, not the prompt itself.</span>
+</h3>
+<p class="intro-sub">The app is the front door — Use Case 4 — where users view insights about an audience. Spectrum reps additionally use the Sales Deck Generator to produce client-facing decks. Once an audience has been viewed and shaped in the app, four downstream activation paths consume it: managed-service media via Spectrum Reach (UC5), data collaboration (UC2), AI model training (UC1), and agentic workflow enhancement (UC3). Modules are anchored to the program stages above. Modules buildable on the current 1% sample ship alongside <strong>Stage 3 (Lock features, Jun–Jul 2026)</strong>. Phase 1 full-data features (the UC4 enhancements blocked on the 1% sample) ship in <strong>Stage 7 (Nov–Dec 2026)</strong>. UC1, UC2, UC3, and UC5 activation paths build in parallel during <strong>Stage 9 (Dec 2026 – Feb 2027)</strong>.</p>
+
+<div class="callout" style="background:#FAEEDA;border-left-color:#BA7517;color:#633806">
+<strong>Phase 1 UC4 features that needed full data (cross-referenced as tab 3 in Spectrum Requirement Needs 052826.xlsx).</strong> The 15 UC4 enhancements are all mapped into this table using their original IDs: <strong>BR-02, BR-03, BR-05, AR-08</strong> (workflow / partially-done LLM items shipping in Stage 3 on the 1% sample), <strong>BR-09, BR-11, BR-12, BR-14, DF-01 through DF-07</strong> (full-data UC4 enhancements shipping in Stage 7, November–December 2026), and <strong>FF-01, FF-02, FF-03</strong> (Phase 2 future features pushed to a later phase beyond this roadmap window). The Stage 7 full-data items are scheduled <em>after</em> the Charter AWS cutover and full-footprint data go-live (Stage 4, end July 2026) and <em>before</em> the Spectrum Reach team's full-feature handover (end December 2026). Type "tab 3" into the table search box, or sort by ID, to see them grouped.</div>
+
+<div class="filter-bar">
+<label for="f-uc">Use case</label>
+<select id="f-uc"><option value="">All use cases</option><option value="UC4">UC4 (Insights)</option><option value="UC1">UC1 (Model training)</option><option value="UC2">UC2 (Data collab)</option><option value="UC3">UC3 (Agentic)</option><option value="UC5">UC5 (Spectrum Reach)</option><option value="Cross">Cross-cutting</option></select>
+<label for="f-data">Data need</label>
+<select id="f-data"><option value="">All</option><option value="1%">1% sufficient</option><option value="Mixed">Mixed</option><option value="Full">Full data</option></select>
+<label for="f-role">Needed to support</label>
+<select id="f-role"><option value="">All</option><option value="Spectrum">Spectrum</option><option value="Brand">Brand</option><option value="Spectrum + Brand">Spectrum + Brand</option><option value="Partner">Partner</option><option value="Internal Ops">Internal Ops</option><option value="All roles">All roles</option></select>
+<input id="f-search" type="search" placeholder="Search name or notes..." />
+<button class="filter-reset" id="f-reset">Reset</button>
+<span class="filter-count" id="f-count"></span>
+</div>
+
+<table class="modules" id="modules-table">
+<thead>
+<tr>
+<th data-sort="id">ID</th>
+<th data-sort="name">Module</th>
+<th data-sort="uc">Use case</th>
+<th data-sort="ships">Ships in</th>
+<th data-sort="data">Data need</th>
+<th data-sort="role">Needed to support</th>
+<th data-sort="notes">Notes (build context)</th>
+</tr>
+</thead>
+<tbody>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="Mixed" data-role="Spectrum + Brand">
+<td class="module-id">B1</td>
+<td class="module-name">Audience Builder &amp; Library</td>
+<td>UC4 · cross-cuts all</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Save, version, and share audience definitions a user has built in the app. Each saved audience carries: filter set, intent thresholds, recency window, suppression rules, owner, version history, and a list of which activation paths it has been pushed to. UI for browse / search / clone / archive. Mixed: definition logic and library UI run on 1%; the actual audience activation (push to a destination) requires full Charter data to be reliable. Foundational module — every downstream activation path consumes audiences from the Library.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">B2</td>
+<td class="module-name">First-Party Data Match</td>
+<td>UC4 · cross-cuts UC2, UC5</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Brand uploads their 1P data (CRM, loyalty, site visitor file) via credentialed upload or Snowflake share. Latis matches the file against Blockgraph household IDs inside the Governed Compute Zone. Output: match rate, overlap with the brand's behavioral audience, lookalike seed audience, validated sizing. Full data required because match rate and overlap statistics are only credible at the full footprint level — a 1% sample produces noisy, unrepresentative match rates and would mislead the brand. UI: upload form, schema mapper, match report, lookalike builder.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="Mixed" data-role="Spectrum + Brand">
+<td class="module-id">B3</td>
+<td class="module-name">Activation Hub</td>
+<td>UC4 · cross-cuts all</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Routing surface where a user takes an audience from the Library and pushes it to one or more activation paths: Spectrum Reach campaign (UC5), Clean Room project (UC2), embedding API (UC1), or MCP endpoint (UC3). Each route shows status, refresh cadence, and identity-translation requirements. Mixed: routing UI / push orchestration runs on 1%; the actual data delivery requires full footprint. Foundational — without the Hub, the activation paths have no consistent on-ramp.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="1%" data-role="Spectrum">
+<td class="module-id">B4</td>
+<td class="module-name">Sales Deck Generator · library integration</td>
+<td>UC4 (Spectrum) · supports UC5</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-spectrum">Spectrum</span></td>
+<td class="module-notes">Existing Sales Deck Generator wired to pull from saved audiences in the Library (B1) rather than requiring the rep to re-build the audience inside the deck flow. Adds an "open audience in deck" action from the Library and a "save audience from deck" action from the deck. Pure integration — no new data dependencies. Sales Deck Generator is Spectrum-only per RBAC (Stage 4); brand-direct users never see this feature.</td>
+</tr>
+
+<tr data-uc="Cross" data-wave="Wave 1" data-data="Full" data-role="Internal Ops">
+<td class="module-id">OP1</td>
+<td class="module-name">Identity Spine Management</td>
+<td>Cross-cutting · all use cases</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-internal">Internal Ops</span></td>
+<td class="module-notes">Blockgraph household ID anchor plus Identity Translation orchestration (Blockgraph → UID2 / Mercury / Yahoo Connect / NextEra). Provides the canonical household identifier every activation path depends on. Full data required because the spine has to cover the entire Charter footprint to be useful for partner identity translation. Includes audit logging of every household resolution, lineage tracking, and quality monitoring.</td>
+</tr>
+
+<tr data-uc="Cross" data-wave="Wave 1" data-data="Full" data-role="Internal Ops">
+<td class="module-id">OP2</td>
+<td class="module-name">Governed Compute Zone Monitoring</td>
+<td>Cross-cutting · all use cases</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-internal">Internal Ops</span></td>
+<td class="module-notes">Operational dashboards for the secure data environment where all matching, enrichment, and audience creation occur. Tracks resource utilization, access logs, data lineage, query patterns, and anomalous access attempts. Full data required because the GCZ operates on the full Charter footprint — monitoring a 1% subset would miss production load patterns and security signals.</td>
+</tr>
+
+<tr data-uc="Cross" data-wave="Wave 1" data-data="1%" data-role="All roles">
+<td class="module-id">OP3</td>
+<td class="module-name">Documentation Hub · multi-persona</td>
+<td>Cross-cutting · all use cases</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-all">All roles</span></td>
+<td class="module-notes">Role-appropriate documentation for brand analyst, DSP engineer, RMN PM, AI engineering team, Spectrum rep, and internal ops. Includes the Latis Context Pack (for AI integration teams), API reference, integration recipes, brand-style guidelines, and the metric dictionary (cross-references AR-08). Static content; no live data dependency. Searchable; versioned with the platform.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="1%" data-role="Spectrum + Brand">
+<td class="module-id">BR-03</td>
+<td class="module-name">Always-On LLM Fallback</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Ensure core data slides (Your Audience, Insights, Best Play, Summary) work reliably when the AI narrative service is slow or offline. Today some slides show loading spinners or go blank on LLM failure. Implement template-based narrative as fallback: pre-written copy with values interpolated from the data layer. Visual indication when narrative is template vs AI-generated. Logic-only feature; runs fine on 1%.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="1%" data-role="Spectrum + Brand">
+<td class="module-id">BR-02</td>
+<td class="module-name">Business Objective Dialog completion</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Accept an optional business goal at brand selection (e.g. "conquest automotive intenders", "drive toy sales"). The goal must flow through Insights (top card surfaces relevant signal), Your Best Play (recommends matching strategy), and Summary (objective-aligned next steps). Today the UI accepts the goal but only the LLM narrative responds; structured cards do not adapt. Need to make all sections goal-aware. UI: add optional goal field at brand-pick step, add goal indicator to header, propagate goal through all four downstream surfaces.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="1%" data-role="Spectrum + Brand">
+<td class="module-id">BR-05</td>
+<td class="module-name">Industry-Specific Narrative completion</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Tailor language and recommended use cases to the advertiser's industry across all narrative surfaces. QSR brands get food-and-dining language and drive-time / delivery signals. Banks get in-market intent for loans / cards. Today only LLM copy adapts; structured cards and recommended use cases need to become vertical-aware. Supported verticals at launch: Retail, Financial Services, Automotive, Food &amp; Dining, Travel &amp; Hospitality, Consumer Electronics, Sportsbook, SVOD. Per-vertical signal templates and copy library.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 1" data-data="1%" data-role="All roles">
+<td class="module-id">AR-08</td>
+<td class="module-name">Standardized Metric Definitions &amp; Tooltips</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q3-26">Q3 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-all">All roles</span></td>
+<td class="module-notes">Tableau-style tooltips and hover panels explaining every metric: household engagement rate, competitor domain index, intender flag, reach, affinity, etc. Tooltip content comes from a single governed metric dictionary maintained by the data team. Add a "metric dictionary" page accessible from every chart's "?" icon. Ensures users understand what they are looking at and that the same metric means the same thing everywhere. Definitional work — does not require the full data set to author; runs on 1%.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">BR-09</td>
+<td class="module-name">Live Welcome Counters</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Wire the four animated counters on the Welcome screen to real, currently-accurate Charter values: total households, daily web queries, connected devices, video impressions per day. Today connected devices and video impressions animate to zero because the data is not wired. Full data required because the counters represent the full Charter footprint, not the 1% sample. Define refresh cadence (daily) and stale-data alerting. Animation matches existing app pattern.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">BR-12</td>
+<td class="module-name">Industry / Agency Portfolio View</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Allow opening Latis in industry mode to see audience intelligence aggregated across an entire vertical, not just one brand. Use case: rep meets with an automotive-focused agency, opens Latis in "Automotive" mode, sees aggregate audience across all auto brands in the curated library, then drills into a specific brand. Required to surface all brands in the chosen vertical. Full data required because vertical-level roll-ups depend on aggregating across the entire brand set at full footprint — a 1% sample produces non-comparable per-brand slices. Adds a vertical-selector step; rolls up all subsequent tabs (Your Audience, Insights, Best Play) at the industry level.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">BR-11</td>
+<td class="module-name">Incremental Reach Proof</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Surface a single high-confidence number: how many Charter households an advertiser can reach who are not already being reached by the advertiser's existing TV buys. Addresses the "we already buy TV" objection. Requires 1P outcome data (the brand's TV exposure history per household) joined to Charter behavioral data inside the Clean Room. Full data required because the calculation has to cover the brand's entire reach universe, not a 1% slice. Disclose methodology inline.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">BR-14</td>
+<td class="module-name">Combined Signal Insights (web + device + video)</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Show the combined power of DNS browsing + CUJO device + video viewership signals. Sample insights: "X% of households watching ESPN also visit fanduel.com on the same evening." Requires I11 (video) and I12 (device) wired in. Add new insight cards on Insights page and new deck slides showing cross-signal value. Full data required because cross-signal joins on a 1% sample produce vanishingly small intersection sets — the insights only emerge at full footprint.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-01</td>
+<td class="module-name">Time-Series Household Behavior backbone</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Foundational data layer capturing how each household's behavior evolves over time. Today the 1% sample is point-in-time only — there is no way to show research progression, frequency, recency, or behavioral changes. Requires full Deepfield DNS with timestamped events, 90+ day rolling window per household, and stable household identity over the window. Blocks I10 (real journey), I13 (frequency / recency), I14 (migration / lapsed-user). Storage and query-cost review required.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-02</td>
+<td class="module-name">Real Household Journey Visualization</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Replace the mocked Household Journey on Insights with a real 30–90 day timeline showing a representative household's domain visits, category research progression, and behavioral signals. Sampling logic picks a representative household per brand vertical. Anonymization / privacy review with legal required. Needs I9 backbone. Full data required because picking a meaningfully representative household requires statistical depth that the 1% sample does not provide.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-03</td>
+<td class="module-name">Video Viewership Integration</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Wire linear + streaming viewership data into the analysis pipeline. Sources: Linear (5.8M HHs), Quantum (7.0M), VOD (3.9M), legacy STB iCollect / TWC / Zodiac. Identity-resolve to Charter household level so video joins to DNS and CUJO. Unlocks "Best Play" recommendations grounded in TV behavior and BR-14 combined-signal insights. Add genre tagging via tms_program_id. Full data required because video sources cover the full Charter footprint and partial coverage breaks Best Play recommendations.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-04</td>
+<td class="module-name">Device / CUJO Integration</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Integrate CUJO device telemetry (~17.8M HHs from Q4 2025 export). Surface household archetypes from device composition: "smart home detected", "connected fitness device on network", "multi-screen sports household", etc. Add device-aware insight templates. Lower priority than I11 video — produces fewer high-impact insights but adds to the Phase 1A signal bundle. Full data required for accurate archetype detection at brand scale.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-05</td>
+<td class="module-name">Frequency &amp; Recency Metrics</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Add per-household visit frequency and recency to competitor signals. Example: "households visiting Brand A also visit competitor sportsbooks an average of X times per week, with mean recency Y days." Needs I9 backbone. Surface on Insights cards (top co-visited domains) and Best Play recommendations. Full data required because frequency / recency derivations depend on the time-series backbone, which itself requires full data.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-06</td>
+<td class="module-name">Competitive Migration &amp; Lapsed-User Tracking</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Track household behavior over time to identify migrations between competitors, category churners, and new entrants. Powers conquest and win-back use cases. Needs I9 (time-series backbone) plus stable household identity over 90+ days. Migration scoring layer and recency-of-last-visit derivation. Full data required because migration signals are rare events that need the full footprint to surface reliably.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 2" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">DF-07</td>
+<td class="module-name">Journey / Vector-Space Visualization tab</td>
+<td>UC4 · tab 3</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">New dedicated tab visualizing how Latis collects data, how data points move through embedding vector space over time, and how that drives the propensity / insight outputs. Builds on I10 conceptually. Discovery session needed to align on scope. Open decision: is the embedding visualization real (powered by actual vector outputs) or representational (illustrative)? Full data required if real; if representational, can ship earlier.</td>
+</tr>
+
+<tr data-uc="UC5" data-wave="Wave 3" data-data="Full" data-role="Spectrum">
+<td class="module-id">5A</td>
+<td class="module-name">Activation Push to Spectrum Reach</td>
+<td>UC5</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-spectrum">Spectrum</span></td>
+<td class="module-notes">Production push from Latis (Blockgraph ID space) to Spectrum Reach campaigns via Freewheel / Radar. Audience refresh cadence configurable per campaign. Tracks delivery success, audience freshness, and any namespace conversion issues. Full data required because the audiences delivered go straight into production media buying — partial audiences mean partial campaigns.</td>
+</tr>
+
+<tr data-uc="UC5" data-wave="Wave 3" data-data="1%" data-role="Spectrum">
+<td class="module-id">5B</td>
+<td class="module-name">Campaign Brief Builder</td>
+<td>UC5</td>
+<td><span class="pill q4-26">Q4 2026</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-spectrum">Spectrum</span></td>
+<td class="module-notes">Form / workflow tool. Spectrum rep enters client KPIs, target segments, suppression rules, Test &amp; Control methodology, MMM aggregate-export requirements. Outputs a structured brief that drives audience construction in the Audience Builder. Workflow only; 1% sufficient.</td>
+</tr>
+
+<tr data-uc="UC5" data-wave="Wave 3" data-data="Mixed" data-role="Spectrum">
+<td class="module-id">5C</td>
+<td class="module-name">Test &amp; Control Configurator</td>
+<td>UC5</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-spectrum">Spectrum</span></td>
+<td class="module-notes">Hold-out or synthetic control setup, with sample-size validation and exposure-tracking config. Configuration UI works on 1% but the statistical power calculations and production test execution require full data. Brief specifically mentions Test &amp; Control as a developed methodology — should be a first-class module.</td>
+</tr>
+
+<tr data-uc="UC5" data-wave="Wave 3" data-data="Mixed" data-role="Spectrum">
+<td class="module-id">5D</td>
+<td class="module-name">Suppression &amp; Win-Back Manager</td>
+<td>UC5</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-spectrum">Spectrum</span></td>
+<td class="module-notes">Manage client 1P-derived suppression lists (existing customers excluded) and win-back targets (lapsed customers). Refreshes from client 1P on schedule. UI / workflow on 1%, but the lists themselves need to match against the full Charter footprint to be useful in production.</td>
+</tr>
+
+<tr data-uc="UC5" data-wave="Wave 3" data-data="Full" data-role="Spectrum">
+<td class="module-id">5E</td>
+<td class="module-name">Performance Pull-Back</td>
+<td>UC5</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-spectrum">Spectrum</span></td>
+<td class="module-notes">Outcome data from Spectrum Reach campaigns flows back to Latis. Weekly optimization review surface shows audience-level performance vs benchmarks, with suggested audience adjustments. Full data required because real campaign performance only exists at the full-footprint level.</td>
+</tr>
+
+<tr data-uc="UC2" data-wave="Wave 4" data-data="1%" data-role="Spectrum + Brand">
+<td class="module-id">2A</td>
+<td class="module-name">Clean Room Project Setup</td>
+<td>UC2</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">RMN or agency project intake. Define what 1P data the partner is bringing, which Intelligence Features to apply, what third-party outcome data to layer in (Circana, Epsilon, foot traffic, auto registration), what destination namespace (UID2, Mercury, Yahoo Connect, NextEra). Workflow / metadata only; 1% sufficient.</td>
+</tr>
+
+<tr data-uc="UC2" data-wave="Wave 4" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">2B</td>
+<td class="module-name">1P Data Ingestion &amp; Validation</td>
+<td>UC2</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Schema mapping, sample-row validation, match-rate preview against the full Latis identity spine, attrition reporting at each join. RMN needs confidence in match quality before approving full ingestion. Full data required because match-rate preview is meaningless on a 1% sample.</td>
+</tr>
+
+<tr data-uc="UC2" data-wave="Wave 4" data-data="Mixed" data-role="Spectrum + Brand">
+<td class="module-id">2C</td>
+<td class="module-name">Enrichment Configurator</td>
+<td>UC2</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Which Intelligence Features to apply (propensity, intent, household state, device composition), which outcome datasets to layer in, what filters to apply. Outputs audience definition with cost and reach estimates before commit. Configuration UI on 1%; production output requires full footprint.</td>
+</tr>
+
+<tr data-uc="UC2" data-wave="Wave 4" data-data="Mixed" data-role="Spectrum + Brand">
+<td class="module-id">2D</td>
+<td class="module-name">Identity Translation Service</td>
+<td>UC2</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">UI for selecting destination namespace, scheduling translation cadence, viewing translation success rates by namespace. Translation logic itself is Snowflake-native (Identity Spine, OP1). Mixed because translation UI runs on 1% but production translation throughput needs full footprint.</td>
+</tr>
+
+<tr data-uc="UC2" data-wave="Wave 4" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">2E</td>
+<td class="module-name">Campaign Performance Loop</td>
+<td>UC2</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Outcome data from the partner's campaigns flows back into the Clean Room. Performance dashboard tracks ROAS, lift, reach versus the unenhanced baseline. Full data required because partner campaigns run at production scale and need full-footprint comparison.</td>
+</tr>
+
+<tr data-uc="UC1" data-wave="Wave 4" data-data="1%" data-role="Partner">
+<td class="module-id">1A</td>
+<td class="module-name">Embedding Catalog &amp; Schema Docs</td>
+<td>UC1</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-partner">Partner</span></td>
+<td class="module-notes">Browseable inventory of available embedding versions, schemas, dimension counts, refresh dates, example use cases. Versions are pinned (model_v3, model_v4) so DSPs can lock to a known version while testing a new one. Catalog content is data-independent; 1% sufficient.</td>
+</tr>
+
+<tr data-uc="UC1" data-wave="Wave 4" data-data="Mixed" data-role="Partner">
+<td class="module-id">1B</td>
+<td class="module-name">API &amp; Bulk Delivery Console</td>
+<td>UC1</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-partner">Partner</span></td>
+<td class="module-notes">Issue API keys, configure delivery (real-time API vs daily S3 push), monitor latency, view per-endpoint usage. Includes the spec for the household identifier the DSP passes in and the embedding vector it gets back. Console runs on 1%; production embedding delivery requires the full embedding table refreshed daily from full footprint.</td>
+</tr>
+
+<tr data-uc="UC1" data-wave="Wave 4" data-data="Full" data-role="Partner">
+<td class="module-id">1C</td>
+<td class="module-name">Backtest Workbench</td>
+<td>UC1</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-partner">Partner</span></td>
+<td class="module-notes">DSP uploads historical campaign outcome data and compares predicted vs observed lift on Latis-enriched models against an unenriched baseline. Output: quantified pre-launch ROI estimate. Full data required because credible backtests need historical depth and scale that the 1% sample cannot provide.</td>
+</tr>
+
+<tr data-uc="UC3" data-wave="Wave 4" data-data="1%" data-role="Partner">
+<td class="module-id">3A</td>
+<td class="module-name">MCP Endpoint Registry</td>
+<td>UC3</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-1">1%</span></td>
+<td><span class="pill role-partner">Partner</span></td>
+<td class="module-notes">Catalog of Intelligence Features exposed as MCP tools, with schema docs for each. Agent platforms register Latis as a context source and can query Features at decision time. Catalog content is data-independent; 1% sufficient.</td>
+</tr>
+
+<tr data-uc="UC3" data-wave="Wave 4" data-data="Mixed" data-role="Partner">
+<td class="module-id">3B</td>
+<td class="module-name">Feature API Browser</td>
+<td>UC3</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-mixed">Mixed</span></td>
+<td><span class="pill role-partner">Partner</span></td>
+<td class="module-notes">Interactive console for testing context queries before integration. Pass in a household identifier or a context payload, see what Features return, inspect latency. Testing on 1% gives example responses; production responses require full footprint.</td>
+</tr>
+
+<tr data-uc="UC3" data-wave="Wave 4" data-data="Full" data-role="Partner">
+<td class="module-id">3C</td>
+<td class="module-name">Agent Auth, Quota &amp; SLO Monitor</td>
+<td>UC3</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-partner">Partner</span></td>
+<td class="module-notes">API key management, per-agent rate limiting, quota dashboards, latency percentiles, error rates, region-specific behavior. Full data required because SLO measurements only have meaning under production-scale traffic against the full Feature surface.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 4" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">FF-01</td>
+<td class="module-name">Predictive Audience Intelligence</td>
+<td>UC4 · Phase 2 · tab 3</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Propensity models for likely category entrants, brand switchers, and households moving toward purchase. Evolves Latis from describing current behavior to predicting future intent. Full data required because rare events (brand switching, pre-purchase intent) need the full footprint for reliable signal — a 1% sample is too sparse. Requires Data Science to define prediction targets and feature set, ML Engineering for modeling pipeline, MLOps for deployment and refresh, UX for surfacing predictions with confidence ranges.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 4" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">FF-02</td>
+<td class="module-name">Audience Trajectory &amp; Trend Discovery</td>
+<td>UC4 · Phase 2 · tab 3</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Surface whether brand or category interest is growing, declining, or accelerating across the Charter footprint. Flag emerging opportunities to advertisers before they ask. Full data required because trend signals at brand-category granularity on a 1% sample carry too much noise to reliably distinguish real changes from sampling variance. Needs longitudinal full-footprint data covering a multi-month rolling window plus a baseline period for change detection.</td>
+</tr>
+
+<tr data-uc="UC4" data-wave="Wave 4" data-data="Full" data-role="Spectrum + Brand">
+<td class="module-id">FF-03</td>
+<td class="module-name">What-If Simulation</td>
+<td>UC4 · Phase 2 · tab 3</td>
+<td><span class="pill q1-27">Q1 2027</span></td>
+<td><span class="pill data-full">Full</span></td>
+<td><span class="pill role-both">Spectrum + Brand</span></td>
+<td class="module-notes">Interactive simulation surface. Users adjust domain sets, recency windows, frequency thresholds, audience size, or campaign objective and see how audience quantity, audience quality, cost, and expected business metrics shift. Potential paid-tier capability. Full data required because user-driven slicing on a 1% sample quickly produces audiences below the sample-size threshold where results are reliable; free-form slicing only works at full footprint.</td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="module-legend"><strong>Data need:</strong>
+<span class="pill data-1">1% sufficient (Blend side)</span>
+<span class="pill data-mixed">Mixed (build on 1%, activate on full)</span>
+<span class="pill data-full">Full data required (Charter side)</span>
+</div>
+<div class="module-legend"><strong>Needed to support:</strong>
+<span class="pill role-spectrum">Spectrum</span>
+<span class="pill role-brand">Brand</span>
+<span class="pill role-both">Spectrum + Brand</span>
+<span class="pill role-partner">Partner (DSP / RMN / AI engineering)</span>
+<span class="pill role-internal">Internal Ops</span>
+<span class="pill role-all">All roles</span>
+</div>
+
+</section>
+
+<section>
+<h3>Continuous parallel streams</h3>
+<div class="streams">
+<div class="phase gray">
+<div class="phase-head"><div class="phase-num">Continuous</div><div class="phase-name">User testing &amp; feedback</div><div class="phase-time">Stage 1 onward</div></div>
+<div class="block-body">Weekly sessions with active users — Spectrum reps initially, brand-direct customers from Stage 5 onward — plus ticket triage, prioritized feature requests fed into the build backlog, and regression spot-checks before every release.</div>
+</div>
+<div class="phase gray">
+<div class="phase-head"><div class="phase-num">Continuous</div><div class="phase-name">LLM &amp; data QA</div><div class="phase-time">Stage 0 onward</div></div>
+<div class="block-body">Golden test set runs on every prompt or model change, reconciliation queries against the data layer, drift alerts when KPIs diverge from baseline, and model-version regression gates before promoting any new Claude version.</div>
+</div>
+</div>
+</section>
+
+<section>
+<h3>Key risks to flag for leadership</h3>
+<div class="risks">
+<div class="risk-card">
+<div class="risk-stage">Stage 2 risk</div>
+<div class="risk-name">Spectrum infosec timeline</div>
+<div class="risk-body">The AWS handoff depends on a security review timeline the build team does not control. If review takes six weeks instead of three, every downstream stage shifts including the entire Stage 7 Phase 1 buildout. Start the infosec conversation in early July; Stage 3 (feature lock + DoD) runs concurrently so it absorbs some schedule slack.</div>
+</div>
+<div class="risk-card">
+<div class="risk-stage">Stage 6 risk</div>
+<div class="risk-name">RBAC verification hard gate</div>
+<div class="risk-body">One brand seeing another brand's data ends the program. RBAC must be verified by an independent adversarial test before any external brand sees Latis. Plan a dedicated one-week buffer for this verification before Stage 8 (Brand-direct pilot) starts.</div>
+</div>
+<div class="risk-card">
+<div class="risk-stage">Stage 9 risk</div>
+<div class="risk-name">Parallel-track capacity</div>
+<div class="risk-body">Stage 9 builds four use case activation paths in parallel from December through February — UC1, UC2, UC3, and UC5. Requires four independent build tracks with non-overlapping resourcing. If staffing constrains to fewer tracks, sequence UC2 first (highest commercial value), then UC5, then UC1, then UC3.</div>
+</div>
+</div>
+</section>
+
+<section>
+<h3 class="major">Definition of Done · App launch readiness
+<span class="h-sub">Plain-English checklist of what "done" looks like for the current app and its activation expansion. Built on Latis_DoD_and_Context_Pack_v2 and extended for the platform-wide build.</span>
+</h3>
+<div class="dod-grid">
+<div class="dod-card">
+<div class="dod-card-title">Data</div>
+<ul>
+<li>Running on full data, not the 1% sample (or extrapolation from the sample is disclosed inline wherever used).</li>
+<li>Foundations-team de-sampled numbers in place across every page.</li>
+<li>No hardcoded placeholder or zero values anywhere on a user-facing surface.</li>
+<li>Source label with as-of date on every page that shows numbers.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">Numbers and consistency</div>
+<ul>
+<li>Same number means the same thing everywhere. Brand reach on Your Audience matches reach on Insights matches reach on Your Best Play matches whatever appears on the Sales Deck — to the digit.</li>
+<li>One source of truth per KPI. No page recomputes a number another page already produces.</li>
+<li>Every KPI has a reconciliation query an analyst can run against the data layer and match.</li>
+<li>Cross-page consistency verified for all curated brands before launch.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">App behavior</div>
+<ul>
+<li>All seven pages render: Welcome, Select Brand, Your Audience, Insights, Your Best Play, Summary, Sales Deck.</li>
+<li>Brand selection works two ways: curated brand cards and free-form domain entry with optional campaign-objective field.</li>
+<li>Curated brand library is admin-managed via the Curate Brands surface; brands can be added or retired without code change.</li>
+<li>Each selected brand produces a complete experience across Your Audience, Insights, Best Play, Summary, and Sales Deck.</li>
+<li>Live query runs once on first brand load and caches the result; sub-second navigation after initial analysis.</li>
+<li>Ask Latis is available globally as a slide-over panel from any analysis page.</li>
+<li>App works in a sales meeting: tolerant of single LLM failure, predictable load times, no broken or empty states.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">Sales Deck tab</div>
+<ul>
+<li>Renders the deck as currently constituted, pulling dynamic numbers from the data (or extrapolating from 1% sample where direct full-footprint values aren't available).</li>
+<li>Generates the same use cases on the Your Best Play cards in the deck where appropriate.</li>
+<li>Every number in the deck reconciles to the same number shown on the corresponding analysis page.</li>
+<li>Use-case content matches the use case the app recommended for that brand on Your Best Play.</li>
+<li>Extrapolation methodology disclosed inline on the slide when 1% sample is used.</li>
+<li>Deck generation is a one-time live query, cached after first run for the selected brand.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">LLM output</div>
+<ul>
+<li>Every LLM output is grounded in data we actually have — no invented numbers, no made-up competitor activity, no speculative claims.</li>
+<li>Approved Latis positioning language appears verbatim wherever referenced. No paraphrasing.</li>
+<li>No claims that violate client confidentiality, surface PII, or expose individual household behavior.</li>
+<li>Graceful degradation: when the LLM is unavailable, analysis pages still function on canned, data-grounded insights ranked by signal strength alone.</li>
+<li>Output is consistent across repeated runs for the same brand. No volatility that would surprise a rep mid-meeting.</li>
+<li>Ask Latis answers grounded in real data — no hallucinated metrics, no fabricated competitor claims.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">Performance and reliability</div>
+<ul>
+<li>Pages load within a few seconds for any brand after the first cached analysis.</li>
+<li>First-time live query completes within an acceptable wait window — predictable, visibly progressing, not hanging.</li>
+<li>App stays up during sales hours. No multi-minute cold-start delays.</li>
+<li>Auth in place (sign-in is required on the current app).</li>
+<li>Session state is server-side and shareable, not browser-local.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">Branding and compliance</div>
+<ul>
+<li>Latis brand identity applied throughout. No Spectrum Reach or Charter consumer brand bleed.</li>
+<li>Legal and brand owner have reviewed and signed off on every client-facing surface, including the generated deck.</li>
+<li>Latis positioning language reviewed and approved.</li>
+</ul>
+</div>
+<div class="dod-card">
+<div class="dod-card-title">Sign-offs</div>
+<ul>
+<li>Named pilot users have used the app end-to-end against all curated brands and approved.</li>
+<li>Charter Foundations team has approved the numbers.</li>
+<li>Latis brand owner has approved the copy.</li>
+<li>Legal review complete.</li>
+</ul>
+</div>
+<div class="dod-card" style="border-left-color: var(--purple); grid-column: 1 / -1;">
+<div class="dod-card-title">Extended · Done for each downstream wave</div>
+<ul>
+<li><strong>End of June 2026 (Stage 1 done):</strong> Ground-truth audit document signed off. App inventory captured, 1% sample boundaries validated, known-issues backlog prioritized.</li>
+<li><strong>End of July 2026 (Stages 1–4 done):</strong> Audit complete · Spectrum AWS cutover done · feature lock + DoD signoff + LLM grounding verified · full Charter footprint flowing into the app with source attribution on every surface. Ready for Spectrum pilot to start <strong>Aug 1, 2026</strong>.</li>
+<li><strong>End of September 2026 (Stage 5 done):</strong> Internal Spectrum pilot complete. Feedback captured from 3 named users + ~10 reps. App validated on Spectrum infra with real data and real users.</li>
+<li><strong>End of October 2026 (Stage 6 done):</strong> RBAC verified by adversarial test. Sales Deck Generator gated to Spectrum role only. Brand role visibility scoped correctly.</li>
+<li><strong>End of December 2026 (Stage 7 done · Reach team ready):</strong> Every Phase 1 UC4 enhancement (BR-09, BR-11, BR-12, BR-14, AR-08, DF-01 through DF-07) shows full-footprint values. The mocked Household Journey is replaced with real timestamps. Combined-signal insights appear on Insights cards.</li>
+<li><strong>End of February 2027 (Stages 8 + 9 done):</strong> Brand-direct cohort expanded to 5+ customers with measurable value. One DSP partner integrated on embeddings (UC1), one RMN running in the Clean Room (UC2), one AI platform on MCP (UC3), and one Spectrum Reach managed-service campaign live (UC5).</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<h3 class="major">Latis Context Pack · portable brief for AI tools
+<span class="h-sub">Paste this into the system prompt of any LLM or AI agent that needs to understand Latis. Self-contained; assumes the reader knows nothing about Charter, Spectrum Reach, or Latis. Extended with the five use cases.</span>
+</h3>
+
+<div class="ctx-block">
+<div class="ctx-num">1</div>
+<div class="ctx-title">What Latis is</div>
+<div class="ctx-body">
+<p>Latis is Charter Communications' behavioral intelligence platform. It turns the household-level browsing, device, and video signals already flowing across Charter's network into structured audience insights that advertisers can use. The product is built and operated by Charter Intelligence Ventures (CIV), an internal Charter business unit. Latis is sold to brand advertisers and to the agencies that buy media on their behalf.</p>
+<p><strong>Tagline:</strong> Intelligence. Alive.</p>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">2</div>
+<div class="ctx-title">The data underneath</div>
+<div class="ctx-body">
+<p>Latis runs on three first-party Charter signal sources, all collected passively at the household level, with no surveys and no panels.</p>
+<ul>
+<li><strong>Domain browsing (Deepfield DNS)</strong> — what households visit on the open internet. Approximately 30–31.5 million households in the current footprint, scanning roughly 0.6 trillion DNS events per day across the universe.</li>
+<li><strong>Network and device telemetry (CUJO)</strong> — what connected devices are in the home and how they behave. Approximately 486M+ connected devices observed across the footprint.</li>
+<li><strong>Video viewership</strong> — linear and streaming viewing patterns. Approximately 91B+ video consumption events per year. Integration is in progress; full availability is a Phase 1A target.</li>
+</ul>
+<p>All three are deterministic signals collected from the network itself. None of them comes from a survey, an opt-in panel, or a modeled lookalike. Charter's footprint covers 41 states.</p>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">3</div>
+<div class="ctx-title">What makes Latis different</div>
+<div class="ctx-body">
+<p>Four claims define Latis's positioning. Every one of them is grounded in how the data is collected, not in branding choice.</p>
+<ul>
+<li><strong>Deterministic, not probabilistic.</strong> Every signal is a real observed behavior at a real household, not an estimate.</li>
+<li><strong>Household-level, not device-level.</strong> The unit of analysis is the home, so every device in the home contributes to one behavioral profile.</li>
+<li><strong>Always-on, not survey-based.</strong> Continuous network observation. No recall bias, no opt-in panel.</li>
+<li><strong>Pre-purchase intent, not post-transaction history.</strong> The data shows what households are doing before they decide.</li>
+</ul>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">4</div>
+<div class="ctx-title">Approved positioning language · verbatim, no paraphrase</div>
+<div class="ctx-body">
+<p>These two statements are the official Latis positioning. They appear verbatim in any context where Latis describes its privacy stance, identity handling, or competitive position. No synonyms, no restructuring, no qualifiers.</p>
+<div class="ctx-quote">"We transform signals, we do not expose behavior. We enable relevance without identity."</div>
+<div class="ctx-quote">"Google = intent (search). Meta = affinity (like). Amazon = transaction (bought). Latis = behavior (what households are doing across the full home environment, before decisions)."</div>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">5</div>
+<div class="ctx-title">What Latis never says</div>
+<div class="ctx-body">
+<p>Hard rules. Anything that violates them is suppressed before reaching a client. They apply to every output in every channel, including any LLM-generated content.</p>
+<ul>
+<li>No personally identifiable information. No names, addresses, phone numbers, email addresses, household IDs, or device identifiers.</li>
+<li>No claim about a specific named individual's behavior. Latis sees households and segments, not people.</li>
+<li>No reference to a Latis client other than the one currently being discussed. No cross-engagement leak.</li>
+<li>No invented numbers. Every figure is traceable to a query against the real data, a stated assumption with disclosed methodology, or a cited external source.</li>
+<li>No "will" or "guaranteed" attached to campaign outcomes. Latis describes what is observed, not what will happen.</li>
+<li>No demographic or behavioral claim about a client's audience that the client could already get from their own CRM or loyalty system, unless the index is at least 1.2x against the Charter average and the skew is disclosed.</li>
+<li>No paraphrase of the positioning language above.</li>
+<li>No mixing of Latis brand identity with Spectrum Reach or Charter consumer brands. Latis is distinct.</li>
+</ul>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">6</div>
+<div class="ctx-title">Tone and voice</div>
+<div class="ctx-body">
+<p>Latis sounds like a senior analyst delivering a finding, not a salesperson making a pitch. Claims are stated declaratively when the data supports them, qualified honestly when support is partial, and omitted entirely when support is absent. Hedging is reserved for genuine uncertainty.</p>
+<p>Latis is technically precise. It uses the right words for the right concepts (deterministic, behavioral, household-level, passive, signal). It avoids marketing fluff (game-changing, next-generation, AI-powered).</p>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">7</div>
+<div class="ctx-title">Vocabulary</div>
+<div class="ctx-body">
+<ul>
+<li><strong>Household (HH)</strong> — the unit of analysis. A single Charter-subscribed home with all its devices.</li>
+<li><strong>Signal</strong> — an observed behavior. A domain visit, a device fingerprint, a viewing event.</li>
+<li><strong>Vertical</strong> — a behavioral category. Retail &amp; Shopping, Financial Services, Automotive, Sportsbook, Fitness, SVOD, CPG / Loyalty, and similar industry groupings.</li>
+<li><strong>Index</strong> — comparison to the Charter population average. 100 = same as average. 120 = 20% above average. Used everywhere Latis describes audience skew.</li>
+<li><strong>Co-visit</strong> — two domains visited by the same household. The foundation of cross-category insight.</li>
+<li><strong>Intender</strong> — a household showing in-market behavioral signals for a category (e.g., travel intender, auto intender).</li>
+<li><strong>Embeddings</strong> — high-dimensional vector representation of a household's behavioral state, generated by the Latis embedding model and pre-calculated daily.</li>
+<li><strong>Clean Room</strong> — Latis's Snowflake-based data collaboration environment. Partner first-party data is matched and enriched against Latis Intelligence Features within Latis's governed compute zone.</li>
+<li><strong>Blockgraph</strong> — the identity spine used by Latis to manage household identifiers. Spectrum Reach operates on Blockgraph natively.</li>
+<li><strong>MCP (Model Context Protocol)</strong> — the standard for connecting AI agents to external data sources. Latis exposes Intelligence Features via MCP for agentic workflow use cases.</li>
+<li><strong>Phase 0 / Phase 1A</strong> — current state vs enhanced state. Phase 0 covers approximately 15% of high-intent domain activity (current sampling). Phase 1A covers approximately 30% US household coverage (full footprint, post Snowflake provisioning).</li>
+</ul>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">8</div>
+<div class="ctx-title">What Latis is for</div>
+<div class="ctx-body">
+<p>Latis is built to support a sales conversation between a Charter / Spectrum Reach rep and an advertiser (brand or agency). The product surfaces audience intelligence the advertiser cannot get elsewhere, organized into a persuasive narrative tailored to that advertiser. The goal of every Latis output is to give the rep a moment where the client says some version of "we think about you differently now."</p>
+<p>Latis is not a media-buying tool, not a campaign-management platform, and not a measurement system. It is an intelligence layer that informs the conversation.</p>
+</div>
+</div>
+
+<div class="ctx-block">
+<div class="ctx-num">9</div>
+<div class="ctx-title">The five use cases · Latis go-to-market shape</div>
+<div class="ctx-body">
+<p>Latis Intelligence Platform serves five distinct use cases, each with a different buyer and different consumption mechanism. The platform's modules map across these.</p>
+<ul>
+<li><strong>UC1 · AI Model Training.</strong> DSP and AI model teams consume Latis Embeddings as a training input layer. Delivered via API microservice (sub-50ms p99) or daily bulk S3 push. Buyer: DSP ML / data engineering teams, AI model teams. Example: Amazon DSP, Anthropic.</li>
+<li><strong>UC2 · Data Collaboration.</strong> Retail Media Networks and brand data partners combine their first-party data with Latis Intelligence Features inside the Clean Room. Identity translation to UID2, Mercury, Yahoo Connect, NextEra. Buyer: RMN product teams + agency partners. Example: Walmart Connect.</li>
+<li><strong>UC3 · Agentic Workflow Enhancement.</strong> AI agents query Latis Intelligence Features via MCP or API at decision time to enrich routing, personalization, recommendation. Buyer: AI product / platform engineering teams. Example: retail and device-based AI agents.</li>
+<li><strong>UC4 · Consumer Insights.</strong> Self-service web UI for brand analytics, insights, and strategy teams. The Latis app at latis.blend360.app is the surface for this use case. Buyer: brand-direct analytics teams. Example: CPG brands, direct-to-consumer advertisers.</li>
+<li><strong>UC5 · Managed Service Audience-Based Media.</strong> Latis builds audiences (Blockgraph, Snowflake clean room). Spectrum Reach runs campaigns on Charter linear + CTV inventory via Freewheel / Radar. Client does not interact with Latis directly. Buyer: brands and agencies purchasing through Spectrum Reach. Example: Spectrum Reach beta program.</li>
+</ul>
+<p>The Sales Deck Generator (a feature within the Latis app for UC4) is used by Spectrum Reach reps to support selling UC5 to brands.</p>
+</div>
+</div>
+
+</section>
+
+<footer>
+Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v2_combined.docx and Latis_DoD_and_Context_Pack_v2.docx. Built on Latis_Sales_Enablement_Brief_v3.docx for the five-use-case framing. Prepared by Josh Kaplan, Blend360. Updated June 16, 2026.
+</footer>
+
+</div>
+
+<script>
+(function() {
+  var table = document.getElementById('modules-table');
+  if (!table) return;
+  var tbody = table.tBodies[0];
+  var allRows = Array.from(tbody.rows);
+  var fUc = document.getElementById('f-uc');
+  var fData = document.getElementById('f-data');
+  var fRole = document.getElementById('f-role');
+  var fSearch = document.getElementById('f-search');
+  var fReset = document.getElementById('f-reset');
+  var fCount = document.getElementById('f-count');
+  var sortState = { col: null, dir: 1 };
+
+  function applyFilters() {
+    var uc = fUc.value;
+    var dt = fData.value;
+    var rl = fRole.value;
+    var q = (fSearch.value || '').toLowerCase().trim();
+    var visible = 0;
+    allRows.forEach(function(r) {
+      var show = true;
+      if (uc && r.dataset.uc !== uc) show = false;
+      if (dt && r.dataset.data !== dt) show = false;
+      if (rl && r.dataset.role !== rl) show = false;
+      if (q) {
+        var text = r.textContent.toLowerCase();
+        if (text.indexOf(q) === -1) show = false;
+      }
+      r.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    fCount.textContent = visible + ' of ' + allRows.length + ' modules shown';
+  }
+
+  function sortBy(col) {
+    var headers = table.tHead.rows[0].cells;
+    Array.from(headers).forEach(function(h) {
+      h.classList.remove('sort-asc');
+      h.classList.remove('sort-desc');
+    });
+    var ths = Array.from(headers);
+    var idx = ths.findIndex(function(th) { return th.dataset.sort === col; });
+    if (sortState.col === col) sortState.dir = -sortState.dir;
+    else { sortState.col = col; sortState.dir = 1; }
+    ths[idx].classList.add(sortState.dir > 0 ? 'sort-asc' : 'sort-desc');
+    var rows = Array.from(tbody.rows);
+    rows.sort(function(a, b) {
+      var av = a.cells[idx].textContent.trim().toLowerCase();
+      var bv = b.cells[idx].textContent.trim().toLowerCase();
+      if (av < bv) return -1 * sortState.dir;
+      if (av > bv) return 1 * sortState.dir;
+      return 0;
+    });
+    rows.forEach(function(r) { tbody.appendChild(r); });
+  }
+
+  Array.from(table.tHead.rows[0].cells).forEach(function(th) {
+    if (th.dataset.sort) {
+      th.addEventListener('click', function() { sortBy(th.dataset.sort); });
+    }
+  });
+
+  fUc.addEventListener('change', applyFilters);
+  fData.addEventListener('change', applyFilters);
+  fRole.addEventListener('change', applyFilters);
+  fSearch.addEventListener('input', applyFilters);
+  fReset.addEventListener('click', function() {
+    fUc.value = '';
+    fData.value = '';
+    fRole.value = '';
+    fSearch.value = '';
+    syncCardsToFilter();
+    applyFilters();
+  });
+
+  var ucCards = document.querySelectorAll('.uc-card');
+  function ucCodeFromCard(card) {
+    for (var i = 1; i <= 5; i++) {
+      if (card.classList.contains('uc' + i)) return 'UC' + i;
+    }
+    return '';
+  }
+  function syncCardsToFilter() {
+    var cur = fUc.value;
+    ucCards.forEach(function(c) {
+      c.classList.toggle('active', !!cur && ucCodeFromCard(c) === cur);
+    });
+  }
+  ucCards.forEach(function(card) {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', function() {
+      var ucCode = ucCodeFromCard(card);
+      var wasActive = card.classList.contains('active');
+      fUc.value = wasActive ? '' : ucCode;
+      syncCardsToFilter();
+      applyFilters();
+      if (!wasActive) {
+        var fb = document.querySelector('.filter-bar');
+        if (fb) fb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+  fUc.addEventListener('change', syncCardsToFilter);
+
+  var ucClear = document.getElementById('uc-clear');
+  if (ucClear) {
+    ucClear.addEventListener('click', function() {
+      fUc.value = '';
+      syncCardsToFilter();
+      applyFilters();
+    });
+  }
+
+  applyFilters();
+})();
+</script>
+
+</body>
+</html>
