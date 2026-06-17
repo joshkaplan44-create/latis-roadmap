@@ -189,6 +189,55 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
   .dod-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) { .gates { grid-template-columns: 1fr; } .waves { grid-template-columns: 1fr; } }
+
+/* Top-level page tabs */
+.page-tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin-bottom: 32px; padding-bottom: 0; }
+.page-tab { background: none; border: none; padding: 12px 22px 11px; font-family: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--text-tertiary); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.12s, border-color 0.12s; }
+.page-tab:hover { color: var(--text-primary); }
+.page-tab.active { color: var(--navy); border-bottom-color: var(--navy); }
+.view { display: none; }
+.view.active { display: block; }
+
+/* Requirements page */
+.reqs-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.reqs-stat { background: var(--bg-card); border: 1px solid var(--border); padding: 16px 18px; }
+.reqs-stat-label { font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 6px; }
+.reqs-stat-value { font-size: 24px; font-weight: 500; color: var(--navy); letter-spacing: -0.01em; }
+.reqs-stat-sub { font-size: 11px; color: var(--text-tertiary); margin-top: 4px; }
+
+.reqs-filter { background: var(--bg-card); border: 1px solid var(--border); padding: 16px 18px; display: flex; gap: 14px; flex-wrap: wrap; align-items: end; margin-bottom: 18px; position: sticky; top: 0; z-index: 5; }
+.reqs-filter label { display: block; font-size: 10.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 5px; }
+.reqs-filter select, .reqs-filter input[type=text] { font-family: inherit; font-size: 13px; padding: 7px 10px; border: 1px solid var(--border); background: white; color: var(--text-primary); min-width: 140px; border-radius: 0; }
+.reqs-filter input[type=text] { min-width: 240px; }
+.reqs-filter button { font-family: inherit; font-size: 12px; padding: 8px 14px; border: 1px solid var(--border); background: var(--bg-card-soft); color: var(--text-secondary); cursor: pointer; }
+.reqs-filter button:hover { background: var(--gray-soft); color: var(--text-primary); }
+.reqs-count { font-size: 12px; color: var(--text-tertiary); margin-left: auto; padding-bottom: 8px; }
+
+.reqs-table-wrap { background: var(--bg-card); border: 1px solid var(--border); overflow-x: auto; }
+.reqs-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.reqs-table thead th { background: var(--bg-card-soft); text-align: left; padding: 10px 12px; font-size: 10.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary); border-bottom: 1px solid var(--border); cursor: pointer; white-space: nowrap; position: sticky; top: 0; }
+.reqs-table thead th:hover { color: var(--text-primary); }
+.reqs-table tbody td { padding: 12px; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+.reqs-table tbody tr:hover { background: var(--bg-card-soft); }
+.reqs-table tbody tr:last-child td { border-bottom: none; }
+.reqs-id { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 11.5px; font-weight: 500; color: var(--navy); white-space: nowrap; }
+.reqs-title { font-weight: 500; color: var(--text-primary); }
+.reqs-desc { color: var(--text-secondary); font-size: 12.5px; line-height: 1.5; margin-top: 3px; }
+.reqs-notes { font-size: 11.5px; color: var(--text-tertiary); margin-top: 4px; font-style: italic; }
+
+.pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
+.pill-tab1 { background: var(--teal-soft); color: var(--teal-text); }
+.pill-tab2 { background: var(--amber-soft); color: var(--amber-text); }
+.pill-tab3 { background: var(--purple-soft); color: var(--purple-text); }
+.pill-data-1 { background: var(--teal-soft); color: var(--teal-text); }
+.pill-data-full { background: var(--purple-soft); color: var(--purple-text); }
+.pill-data-mixed { background: var(--amber-soft); color: var(--amber-text); }
+.pill-data-unk { background: var(--gray-soft); color: var(--text-secondary); }
+.pill-stage { background: var(--bg-card-soft); color: var(--text-secondary); border: 1px solid var(--border); }
+.pill-live { background: #E1F5EE; color: #085041; border: 1px solid #B7E2D2; }
+
+.reqs-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 22px; padding: 14px 18px; background: var(--bg-card-soft); border: 1px solid var(--border-soft); font-size: 12px; color: var(--text-secondary); }
+.reqs-legend strong { color: var(--text-primary); font-weight: 500; }
 </style>
 </head>
 <body>
@@ -201,6 +250,13 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 <p class="intro">Nine stages take Latis Intelligence Platform from current state through external brand-direct pilot and Phase 2 activation paths for the other use cases by February 2027. Latis is the unified platform; the <strong>Sales Deck Generator</strong> is one feature within it, used by Spectrum reps to produce client-facing sales decks. Brand-direct customers will access Latis <strong>without</strong> the Sales Deck Generator — every other intelligence function remains available to them. The split is governed by role-based access control (RBAC) in Stage 6.</p>
 <p class="intro">Stages 1 through 4 all complete by end of July so <strong>Spectrum pilot and internal feedback begins August 1, 2026</strong>. Stages 2 and 3 run <strong>concurrently</strong> from July onward — Stage 3 (feature lock + DoD signoff + LLM grounding) runs longer than Stage 2 (AWS migration). Stages 7 and 8 run <strong>concurrently</strong> from November 2026 onward — Stage 8 (Brand-Direct Pilot) runs longer than Stage 7 (Phase 1 data-dependent features). Two continuous streams — user testing and QA — run alongside every stage. Five critical milestones gate the program.</p>
 </header>
+
+<div class="page-tabs">
+<button class="page-tab active" data-view="roadmap">Roadmap</button>
+<button class="page-tab" data-view="requirements">Full requirements catalog</button>
+</div>
+
+<div id="view-roadmap" class="view active">
 
 <section>
 <h3 class="major">The five Latis use cases
@@ -1175,8 +1231,52 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 
 </section>
 
+</div><!-- /view-roadmap -->
+
+<div id="view-requirements" class="view">
+
+<section>
+<h3 class="major">Full requirements catalog
+<span class="h-sub">Every requirement from Latis_SalesTool_BRD_v3_0528.docx, organized into the three BRD tabs. Tab 1 = in scope on the current 1% sample (much of this is already in the app today). Tab 2 = needs a decision before build. Tab 3 = needs full data, Phase 1A enhancement, or Phase 1B. Filter, sort, and search across all ~85 items.</span>
+</h3>
+
+<p class="intro">This catalog reconciles two sources. <strong>What's already in the app today</strong> — every page, widget, and rule already live at latis.blend360.app — comes from the page-level requirements (PG-01 through PG-05), the SDG scope items (SDG-01 through SDG-07), and the always-on rules (BR-03, BR-15, BR-16, BR-18). <strong>What's still to build</strong> spans every other family in the BRD: business requirements (BR), data readiness (DR), non-functional (NF), generated-deck (GD), AI generation rules (S12), technical stack decisions (S11), and Phase 1B architecture (AR).</p>
+
+<div class="reqs-summary" id="reqs-summary"></div>
+
+<div class="reqs-legend">
+<div><strong>Tab 1</strong> · In scope on 1% sample · much of this is shipping today</div>
+<div><strong>Tab 2</strong> · Needs a decision or scoping pass before build</div>
+<div><strong>Tab 3</strong> · Needs full data, Phase 1A enhancement, or Phase 1B / agentic</div>
+</div>
+
+<div class="reqs-filter">
+<div><label for="r-tab">BRD tab</label><select id="r-tab"><option value="">All tabs</option><option value="1">Tab 1 · in scope</option><option value="2">Tab 2 · decisions</option><option value="3">Tab 3 · full data / Phase 1B</option></select></div>
+<div><label for="r-family">ID family</label><select id="r-family"><option value="">All families</option><option value="BR">BR · Business requirements</option><option value="DR">DR · Data readiness</option><option value="NF">NF · Non-functional</option><option value="SDG">SDG · Sales Deck Generator scope</option><option value="PG">PG · Page-level requirements</option><option value="GD">GD · Generated-deck rules</option><option value="AR">AR · Phase 1B architecture</option><option value="S11">S11 · Tech stack</option><option value="S12">S12 · AI generation rules</option></select></div>
+<div><label for="r-data">Data need</label><select id="r-data"><option value="">All</option><option value="1%">1% sample sufficient</option><option value="Full">Full data required</option><option value="Mixed">Mixed</option><option value="Unknown">Unknown</option></select></div>
+<div><label for="r-search">Search</label><input type="text" id="r-search" placeholder="ID, title, description, notes…" /></div>
+<div><label>&nbsp;</label><button id="r-reset">Reset</button></div>
+<div class="reqs-count" id="r-count"></div>
+</div>
+
+<div class="reqs-table-wrap">
+<table class="reqs-table" id="reqs-table">
+<thead><tr>
+<th data-sort="id">ID</th>
+<th data-sort="tab">Tab</th>
+<th data-sort="title">Requirement</th>
+<th data-sort="data">Data need</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+</section>
+
+</div><!-- /view-requirements -->
+
 <footer>
-Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v2_combined.docx and Latis_DoD_and_Context_Pack_v2.docx. Built on Latis_Sales_Enablement_Brief_v3.docx for the five-use-case framing. Prepared by Josh Kaplan, Blend360. Updated June 16, 2026.
+Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.docx and Latis_DoD_and_Context_Pack_v2.docx. Built on Latis_Sales_Enablement_Brief_v3.docx for the five-use-case framing. Prepared by Josh Kaplan, Blend360. Updated June 16, 2026.
 </footer>
 
 </div>
@@ -1303,6 +1403,230 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v2_combine
   }
 
   applyFilters();
+})();
+
+// =============== Top-level page tab switching ===============
+(function() {
+  var tabs = document.querySelectorAll('.page-tab');
+  var views = document.querySelectorAll('.view');
+  tabs.forEach(function(t) {
+    t.addEventListener('click', function() {
+      var v = t.dataset.view;
+      tabs.forEach(function(x) { x.classList.toggle('active', x === t); });
+      views.forEach(function(x) { x.classList.toggle('active', x.id === 'view-' + v); });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+})();
+
+// =============== Requirements catalog ===============
+(function() {
+  var REQS = [
+    // ----- Tab 1: In scope on 1% sample (much already live) -----
+    {id:'BR-03', tab:1, title:'Always-on core functionality', desc:'Tool must function reliably without LLM backend dependency; AI narrative degrades gracefully to data-driven defaults.', data:'1%', notes:'Drives fallback behavior. Referenced by SDG-03 and PG-02 acceptance.'},
+    {id:'BR-05', tab:1, title:'Vertical-aware narrative', desc:'Narrative copy and use cases adapt to the advertiser industry vertical (Retail, FS, Auto, Food, Travel at launch).', data:'1%', notes:'Buildable on current sample; vertical config layer.'},
+    {id:'BR-08', tab:1, title:'Ask Latis panel reliability', desc:'NL query panel returns data-grounded answers for supported types (reach, overlap, comparison, top co-domains); unsupported types degrade gracefully.', data:'1%', notes:'Out of SDG Phase 1A scope per SDG-07; functional on current data.'},
+    {id:'BR-15', tab:1, title:'Latis brand identity compliance', desc:'All outputs use Plus Jakarta Sans 300, palette #111110/#F0EDE6/#888780, Latis mark, tagline "Intelligence. Alive." No Spectrum/Charter consumer branding.', data:'1%', notes:'Pure design rule.'},
+    {id:'BR-16', tab:1, title:'Approved positioning language', desc:'Approved external privacy narrative and four-point competitive framing (Google=intent, Meta=affinity, Amazon=transaction, Latis=behavior).', data:'1%', notes:'Locked copy.'},
+    {id:'BR-18', tab:1, title:'SDG scope alignment', desc:'Phase 1A scope = Landing, Brand Selection, Insights, Why Only Latis. All other pages out of scope.', data:'1%', notes:'Scope-setting requirement.'},
+    {id:'DR-03', tab:1, title:'Consistent data freshness labeling', desc:'Every data-backed slide displays a consistent "source + as-of date" label.', data:'1%', notes:'Label inconsistently applied today.'},
+    {id:'NF-01', tab:1, title:'Performance', desc:'Core slides render in 3s (pre-loaded) / 8s (free-form). Category View ≤15s. PowerPoint export ≤10s.', data:'1%', notes:''},
+    {id:'NF-02', tab:1, title:'Mobile/tablet compatibility', desc:'Render at min 768px viewport, 44px tap targets, tablet-readable charts.', data:'1%', notes:''},
+    {id:'NF-04', tab:1, title:'Cold-start mitigation', desc:'First response under 10s; uses Snowflake pre-aggregates, Redis cache, or warm-ping.', data:'1%', notes:''},
+    {id:'NF-05', tab:1, title:'Configuration layer for platform constants', desc:'Welcome counters, How We Know stats, vertical/domain counts loaded from runtime config — no front-end redeploy required.', data:'1%', notes:''},
+    {id:'SDG-01', tab:1, title:'Landing page parity', desc:'SDG landing mirrors Latis web app: wordmark, dot-matrix mark, four animated KPI counters, tagline, single CTA. Matches WelcomePage component.', data:'1%', notes:'Counter values gated on BR-09.'},
+    {id:'SDG-02', tab:1, title:'Brand selection page', desc:'Phase 1A: pre-loaded cards only, no free-form entry or business-goal field. Phase 1B re-adds both.', data:'1%', notes:'Free-form path explicitly deferred.'},
+    {id:'SDG-03', tab:1, title:'Insights page · top-6 dynamic selection', desc:'Runs 18 canned insight generators; surfaces top 6 dynamically per brand via two-stage LLM (Claude Sonnet web_search → Claude Haiku JSON parse) re-weighted against data-priority field.', data:'1%', notes:'Re-weighting formula TBD (Open Questions). Graceful degradation when LLM disabled.'},
+    {id:'SDG-04', tab:1, title:'Why Only Latis page (static carryover)', desc:'Verbatim carryover from WhyOnlyUsPage: 7-row competitive matrix vs. Nielsen/Experian/Acxiom/LiveRamp, four-pillar Data Moat, closing narrative.', data:'1%', notes:''},
+    {id:'SDG-05', tab:1, title:'Phase 1A beta client card coverage', desc:'13 pre-loaded cards: Dick’s, Sprouts, Subway, Fetch, Walmart, Horizon, WPP, Epsilon/Publicis, Stagwell, Amazon Ads DSP, Magnite, Scope3, Televisa Univision. Cards configurable without code change.', data:'1%', notes:''},
+    {id:'SDG-06', tab:1, title:'Agency & platform card resolution', desc:'Brand-direct → brand-domain analysis. Agency cards → portfolio view (BR-12). Platform/DSP/publisher cards → role-appropriate framing (loyalty for Fetch, supply-side for Magnite).', data:'1%', notes:'Per-card framing tracked as open question.'},
+    {id:'SDG-07', tab:1, title:'Web app pages out of Phase 1A scope', desc:'Excluded from Phase 1A: Your Audience, Category View, How We Know, Your Best Play, Deep Dive, Summary, Ask Latis panel, per-widget affordances, 9-tool Q&A.', data:'1%', notes:''},
+    {id:'PG-01', tab:1, title:'Welcome / brand entry page', desc:'First paint <2s; warm reload <1s; Latis brand mark + tagline; 4 animated counters with as-of dates; 5 pre-loaded brand buttons; free-form entry; optional business goal; keyboard navigation.', data:'1%', notes:'Counter values gated on BR-09.'},
+    {id:'PG-02', tab:1, title:'Insights page', desc:'Opportunity Impact Score (0–100) within 3s; up to 9 cards across demographic/behavioral/competitive/geographic types; 3 progressively unlocked; source + as-of per card; LLM-down fallback; respects business goal.', data:'1%', notes:'Cross-signal cards depend on Phase 1A data.'},
+
+    // ----- Tab 2: Needs decisions before build -----
+    {id:'BR-06', tab:2, title:'Authentication & access control', desc:'Auth required before brand analysis; redirect to login; restrict to authorized Charter personnel and approved partner contacts.', data:'Unknown', notes:'Auth method (Charter SSO, Okta, API token) unconfirmed. Critical security gap.'},
+    {id:'BR-10', tab:2, title:'Session save and share', desc:'Shareable URL recreates session; server-side cache for at least 7 days.', data:'1%', notes:'Requires auth resolution first.'},
+    {id:'BR-13', tab:2, title:'CRM integration + rep intake form', desc:'Salesforce integration surfaces account history; post-meeting intake form captures objectives, audiences, questions, outcome metric for future sessions.', data:'Unknown', notes:'Privacy/compliance review required; feasibility and SF data completeness open.'},
+    {id:'DR-02', tab:2, title:'Phase 1 signal integration path', desc:'Defined integration path for CUJO / viewership / embeddings / propensity scores via a signal-availability configuration layer.', data:'Mixed', notes:'Exact number of ML propensity models TBD.'},
+    {id:'NF-03', tab:2, title:'Infrastructure and reliability', desc:'99.5% uptime SLA; App Runner autoscaling; Redis or materialized views to prevent latency spikes.', data:'1%', notes:'Some infrastructure choices still open.'},
+    {id:'AR-08', tab:2, title:'Consistent data definitions across the tool', desc:'Versioned metric definition layer referenced by every data-producing component; version included in generated deck metadata.', data:'Mixed', notes:'Required for credibility — same metric must compute identically across slides.'},
+    {id:'S11-01', tab:2, title:'Confirmed technical stack', desc:'AWS App Runner us-east-1; Snowflake medallion (CIV_PROD/DEV/TEST); LLM provider TBD; pptxgenjs confirmed.', data:'Unknown', notes:'Auth + container orchestration not confirmed.'},
+    {id:'S11-02', tab:2, title:'Open technical decisions', desc:'Unresolved: LLM provider (OpenAI / Anthropic / Cortex), auth method, Cortex AI legal agreement, frontend framework.', data:'Unknown', notes:'AI builder must flag as assumptions.'},
+    {id:'S11-03', tab:2, title:'Data schemas & field reference', desc:'Field-level schemas for Bronze (DNS, CUJO, viewership), Silver (HHID resolution via MAC), Gold (aggregations).', data:'Full', notes:'Table names, join keys, S3 paths TBD pending Data Engineering.'},
+    {id:'S11-04', tab:2, title:'Codebase map & module boundaries', desc:'Proposed module structure: api/, data/, llm/, pptx/, ui/. Boundary rules prevent cross-layer calls.', data:'1%', notes:'Frontend framework TBD.'},
+    {id:'S11-05', tab:2, title:'Slide layout specification', desc:'Canvas 10×5.63in, 0.4in margin, 0.5in safe zone; typography and color role assignments TBD.', data:'Unknown', notes:'Plus Jakarta Sans availability in pptxgenjs needs verification.'},
+
+    // ----- Tab 3: Full data / Phase 1A enhancement / Phase 1B -----
+    {id:'BR-01', tab:3, title:'Universal brand coverage', desc:'Tool generates a complete deck for ANY advertiser domain (not only 5 pre-loaded brands). Minimum: all 13 Beta Client pipeline names.', data:'Full', notes:'Requires full domain mapping coverage.'},
+    {id:'BR-02', tab:3, title:'Business goal threading', desc:'Optional business-goal input influences narrative across Insights, Your Best Play, and Recommended Next Steps slides — not just one.', data:'Full', notes:'SDG-02 defers business-goal input to Phase 1B.'},
+    {id:'BR-04', tab:3, title:'Export to PowerPoint', desc:'Downloadable editable .pptx for current session. MVP = 9-slide mirror; redesigned = 10-slide GD-01 sequence.', data:'Full', notes:'pptxgenjs confirmed; depends on deck content being populated.'},
+    {id:'BR-09', tab:3, title:'Data completeness — live counters', desc:'Welcome slide’s 4 counters (customers ~31.5M, DNS queries/day, ~19.5M devices, video impressions) all show real values with as-of dates. Connected-devices and video counters animate to 0 today.', data:'Full', notes:'Per BR-19, sourced from Foundations team de-sampled counts.'},
+    {id:'BR-11', tab:3, title:'Incremental reach proof', desc:'Surface incremental reach (high category intent HHs with low/zero addressable TV exposure). Phase 0 uses proxy; Phase 1A uses actual exposure data.', data:'Full', notes:'Phase 1A unlock; depends on viewership data.'},
+    {id:'BR-12', tab:3, title:'Agency vertical / portfolio view', desc:'"View by Industry" mode — Auto, FS, Retail, QSR, Pharma/Healthcare, Shopper Marketing — surfaces aggregate vertical intelligence; one-click drill to brand.', data:'Full', notes:'Used by SDG-06 for agency cards.'},
+    {id:'BR-14', tab:3, title:'Viewership + behavioral signal integration', desc:'Surface combined DNS + video viewership signal as first-class proof point on Your Audience / Deep Dive. Co-visited domain conquest analysis links to viewership.', data:'Full', notes:'Primary commercial unlock per BRD framing.'},
+    {id:'BR-17', tab:3, title:'Full 8-vertical scorecard library', desc:'Expand from 5 to 8 verticals: add Consumer Electronics, Sports & Recreation, Real Estate. Each scorecard: reach, engagement, segments, signal evidence, CIV advantages.', data:'Full', notes:''},
+    {id:'BR-19', tab:3, title:'Foundations team unsampled numbers', desc:'Every HH count, audience size, and reach figure sourced from de-sampled, full-footprint Foundations counts. Sample-derived figures (3.6% Deepfield) excluded from client-facing surfaces.', data:'Full', notes:'Hard rule for client-facing surfaces.'},
+    {id:'DR-01', tab:3, title:'Phase 0 data completeness', desc:'All charts/metrics on Slides 3–8 reflect complete non-sampled Phase 0 data (31.5M HH). Current 3.6% Deepfield sampling must be labeled until reduced.', data:'Full', notes:''},
+    {id:'DR-04', tab:3, title:'Data migration & source-to-production path', desc:'Migrate from pre-computed CSV extracts on App Runner to live Snowflake medallion queries. Sequence: Snowflake core (May 10) → RBAC → Bronze → Silver HHID → Gold → switchover.', data:'Full', notes:'May 10, 2026 hard date; exact table names TBD.'},
+    {id:'DR-05', tab:3, title:'Engagement metrics computed from source data', desc:'Per-vertical engagement (protocol counts, avg visits, avg bytes, active days, day-of-week) computed from the live data layer or labeled as static reference.', data:'Full', notes:''},
+    {id:'DR-06', tab:3, title:'Curated domain-to-category map', desc:'Curated map covers SDG-05 competitors/partners + top 250 domains by HH reach; overrides co-occurrence voting; voting fallback for non-curated domains. Config file, not code.', data:'Full', notes:''},
+    {id:'DR-07', tab:3, title:'Weighting pipeline correction', desc:'Offline extraction applies customers column as per-row weight (matching server.py); no separate post-extract scaling. Outputs match live backend within rounding error for all 13 cards.', data:'Full', notes:''},
+    {id:'DR-08', tab:3, title:'Beta client coverage data readiness', desc:'Each of 13 SDG-05 cards must produce 6 surfaceable insights (priority > 20) from 18 generators. Cards failing readiness either supplemented or removed.', data:'Full', notes:'Pre-launch coverage report required.'},
+    {id:'DR-09', tab:3, title:'Long-tail category confidence display', desc:'Low-confidence assignments (under 1,000 visiting HHs or voting-assigned) display a visible confidence indicator or "category inferred" footnote.', data:'Full', notes:''},
+    {id:'PG-03', tab:3, title:'Your Audience page', desc:'Phase 0 data populates age/income/behavioral indices, homeownership, cross-category rates, top 20 co-visited domains, DMA distribution. 5s pre-loaded / 10s other. Uses governed metric layer.', data:'Full', notes:'Out of SDG Phase 1A scope but page-level requirement.'},
+    {id:'PG-04', tab:3, title:'Category View page', desc:'Brand category placement, named competitors, share-of-voice with methodology, competitive crossover Venn/matrix. No indefinite loading; pre-computed fallback in 3s.', data:'Full', notes:'Currently weakest MVP page (only loading state); most important Phase 1A unlock for agency conversation.'},
+    {id:'PG-05', tab:3, title:'How We Know page', desc:'Explains signal provenance, coverage, and the three-signal architecture for data-savvy stakeholders.', data:'Full', notes:'Acceptance criteria truncated in source BRD.'},
+    {id:'GD-01', tab:3, title:'Deck architecture & slide sequence', desc:'Fixed 10-slide minimum: Cover, Platform Overview, Why Latis, Footprint KPIs, Signals in Market, Domain Over-Index, Near-Term Activations, Activation Deep Dive, Behavioral Journey, Audience Segments.', data:'Full', notes:''},
+    {id:'GD-02', tab:3, title:'Brand footprint & scale KPIs', desc:'Exactly 5 headline KPIs on Slide 4: total HHs (31.5M), broadband (~29M), CUJO devices (~19.5M), weekly DNS events (7.8T enhanced), income-qualified (18.6M @ $75K+). Coverage framing required.', data:'Full', notes:''},
+    {id:'GD-03', tab:3, title:'Domain over-index table', desc:'Exactly 4 vertical-relevant categories; 3–5 top domains, visit share, affinity multiplier per row. Real query results only — no LLM fabrication.', data:'Full', notes:''},
+    {id:'GD-04', tab:3, title:'Near-term activation tiles', desc:'3 tiles on Slide 7: Audience Targeting, Contextual Alignment, Reach & Frequency. Each: title, 2-sentence description, key metric.', data:'Full', notes:'Future-phase capabilities marked "Roadmap" only.'},
+    {id:'GD-05', tab:3, title:'Activation deep-dive slide', desc:'Slide 8 expands one priority activation: name, targeting signals, addressable reach, measurement approach, exclusions/suppression.', data:'Full', notes:''},
+    {id:'GD-06', tab:3, title:'Behavioral journey timeline', desc:'Horizontal timeline: Awareness → Consideration → Intent → Decision, with representative domain examples populated from actual signal data.', data:'Full', notes:''},
+    {id:'GD-07', tab:3, title:'Audience segments table', desc:'3–5 segments on Slide 10: name, size in footprint, behavioral signals, recommended activation. Unsizable segments marked "Sizing TBD."', data:'Full', notes:''},
+    {id:'GD-08', tab:3, title:'Confidentiality & attribution standards', desc:'Confidentiality footer on every slide; CIP wordmark on every slide; Latis identifier on cover/final; third-party attributions inline; no PII, no individual HH data, no other-client info.', data:'1%', notes:''},
+    {id:'GD-09', tab:3, title:'Client Intelligence Brief · fixed 11-slide sequence', desc:'Locked 11-slide order: Title+TOC, Platform Overview, Why Latis, Charter Scale Stats, Client Signal Footprint, Over-Index, CIP vs Client Contrast, Near-Term Activations, Drilled-Down Activation, Competitive Intelligence, Medium-Term Opportunities.', data:'Full', notes:'Slides 9 and 11 conditionally suppressible; order does not shift.'},
+    {id:'GD-10', tab:3, title:'Title + TOC slide', desc:'Client name, "Audience Intelligence Brief," date, confidentiality footer, 3-item TOC.', data:'1%', notes:''},
+    {id:'GD-11', tab:3, title:'Platform overview · 3-signal source format', desc:'3-column/card layout: Deepfield DNS, CUJO, Video Viewership with HH reach + scale stat + passive-signal description. 4-item intelligence outputs grid below.', data:'Full', notes:'"[Data pending — Snowflake provisioning]" when unavailable.'},
+    {id:'GD-12', tab:3, title:'Why Latis for [Client] · 4 differentiator cards', desc:'4 cards: (1) signal scale/passivity, (2) cross-category intelligence, (3) audience quality/income skew, (4) measurement/attribution. Each carries a client-specific stat.', data:'Full', notes:''},
+    {id:'GD-13', tab:3, title:'Client signal footprint · stat callout format', desc:'48pt+ stat callouts: HHs reaching client domain, avg visits/month, active engagement days, income skew of high-engagement HHs (10+ visits), primary device penetration. Top-10 ranking label if applicable.', data:'Full', notes:''},
+    {id:'GD-14', tab:3, title:'Cross-category over-index tables', desc:'At least 3 category tables: domain, client visit rate %, Charter avg visit rate %, index score. Suppress index <1.10×. Category-level header index displayed.', data:'Full', notes:''},
+    {id:'GD-15', tab:3, title:'CIP vs. client view contrast slide', desc:'Single anonymized HH with 30-day timeline; left = client view (transaction/loyalty/segment); right = CIP view (pre-transaction browsing, cross-category, device, video). Caption: "[Client] sees the transaction. CIP sees the journey."', data:'Full', notes:''},
+    {id:'GD-16', tab:3, title:'Near-term activations card structure', desc:'Exactly 3 cards: title, 1-sentence description, VALUE DRIVER callout, BENEFITS TO stakeholder. Required use cases: Conquesting, Early Intent Identification, Audience Enrichment.', data:'Full', notes:''},
+    {id:'GD-17', tab:3, title:'Competitive intelligence · conquest framing', desc:'Domain-level competitive table with relative index; quantify conquestable universe (HHs visiting competitor but not client). ≥3 competitors derived from co-visit data, not manually specified.', data:'Full', notes:''},
+    {id:'GD-18', tab:3, title:'Prohibition on already-known data', desc:'No slide presents data the client can derive from first-party (age, gender, geo heatmap, purchase history, loyalty counts, existing segments) unless index ≥1.2× vs. Charter average.', data:'Full', notes:'Validation against "client-derivable" flag in Signal Readiness Matrix.'},
+    {id:'GD-19', tab:3, title:'Universal unsampled sourcing', desc:'All HH counts/reach/audience figures on every generated deck from de-sampled Foundations data. No 3.6% sample figures in deck output.', data:'Full', notes:''},
+    {id:'GD-20', tab:3, title:'Coverage state caveat required', desc:'Every data-bearing slide carries explicit Phase 0 (~15%) vs Phase 1A (~30%, 7.8T events/week) caveat. Phase 1A figures forbidden pre-Snowflake.', data:'Full', notes:''},
+    {id:'GD-21', tab:3, title:'Vendor-comparison placement', desc:'Vendor comparison matrix surfaced via SDG Why Only Latis page. If included in generated deck, added beyond GD-09 locked 11-slide sequence, not replacing.', data:'1%', notes:''},
+    {id:'GD-22', tab:3, title:'Locked slide sequence compliance', desc:'Every deck implements GD-09 11-slide order; optional suppression allowed but order and numbering preserved.', data:'Full', notes:''},
+    {id:'GD-23', tab:3, title:'Charter scale KPI set', desc:'Slide 4 exactly 5 KPIs: HHs, broadband, CUJO devices, weekly DNS events, income-qualified. Coverage state + Foundations attribution.', data:'Full', notes:''},
+    {id:'GD-24', tab:3, title:'Confidentiality footer & branding compliance', desc:'Every slide carries "Confidential — Prepared for [Prospect Name] by Charter Intelligence Ventures" + CIP wordmark. Alternates forbidden.', data:'1%', notes:''},
+    {id:'GD-25', tab:3, title:'Activation channel column on segments table', desc:'Audience Segments Table includes a Recommended Activation Channel column per row.', data:'Full', notes:''},
+    {id:'GD-26', tab:3, title:'Why Latis card angle coverage', desc:'Why Latis slide covers all 4 GD-12 angles as distinct cards.', data:'Full', notes:''},
+    {id:'GD-27', tab:3, title:'Cross-category over-index table format', desc:'4-column table per GD-14; card-only or affinity-multiplier-only formats forbidden.', data:'Full', notes:''},
+    {id:'GD-28', tab:3, title:'Near-term activations card format', desc:'Exactly 3 cards per GD-16; Conquesting, Early Intent, Audience Enrichment required.', data:'Full', notes:''},
+    {id:'GD-29', tab:3, title:'Activation deep-dive slide', desc:'Drilled-Down Activation slide per GD-05 in every deck.', data:'Full', notes:''},
+    {id:'GD-30', tab:3, title:'CIP vs. client view contrast slide', desc:'Per GD-15 in every deck, before the activations section.', data:'Full', notes:''},
+    {id:'S12-01', tab:3, title:'Data grounding rule', desc:'Every numeric claim from an actual query result. No LLM estimation/inference of numbers. Traceable source per S12-07.', data:'Full', notes:''},
+    {id:'S12-02', tab:3, title:'Context payload structure', desc:'Pre-generation payload required: prospect_name, vertical, coverage_state, query_results, brand_style. Missing fields → error, not partial deck.', data:'Full', notes:''},
+    {id:'S12-03', tab:3, title:'Validation gate before rendering', desc:'Pre-render checks: slide presence/order, populated numerics, prospect name, footer, no prohibited content. Failure returns structured error, no auto-correct.', data:'Full', notes:''},
+    {id:'S12-04', tab:3, title:'Cross-slide consistency', desc:'Shared values defined once in payload; total addressable audience consistent across slides; coverage state consistent; segment sizes ≤ total.', data:'Full', notes:''},
+    {id:'S12-05', tab:3, title:'Prompt injection prevention', desc:'Brand domain and business goal sanitized; inserted as delimited data with XML/labeled sections; reject prompt-like syntax ("Ignore previous instructions").', data:'1%', notes:''},
+    {id:'S12-06', tab:3, title:'Fallback hierarchy for missing data', desc:'L1 vertical average → L2 placeholder string → L3 slide suppression with logged note. Fabrication and silent omission prohibited.', data:'Full', notes:''},
+    {id:'S12-07', tab:3, title:'Audit trail for generated decks', desc:'Per-deck audit record (90-day retention): prospect, timestamp UTC, coverage state, Snowflake query IDs + row counts, LLM provider + model, validation results, rep user ID. Admin-accessible without DB access.', data:'Full', notes:''},
+    {id:'AR-01', tab:3, title:'Brand line-of-business breakdown', desc:'Sub-selection step for multi-LOB brands (Capital One: Credit Cards/Auto Lending/Commercial Banking; Amazon: Retail/Prime Video/AWS). Filters insights, competitors, use cases.', data:'Full', notes:'Phase 1B.'},
+    {id:'AR-02', tab:3, title:'Media & advertising angle in every deck', desc:'Every deck includes a section for the media buyer: activation channels (Spectrum addressable TV, DSP, social, search), segmentation for activation, measurement framing.', data:'Full', notes:'Phase 1B.'},
+    {id:'AR-04', tab:3, title:'Document upload to pre-populate a session', desc:'Upload .docx/.pdf/.txt or paste raw text; extract brand, LOB, objective, competitors, timing within 15s; user-editable before deck generation.', data:'Full', notes:'Phase 1B.'},
+    {id:'AR-05', tab:3, title:'Context packs for repeat clients', desc:'Admin-managed context packs pre-populate brand/LOB/vertical/use cases. Versionable, retire-able; sessions referencing updated packs are flagged for refresh.', data:'Full', notes:'Phase 1B.'},
+    {id:'AR-10', tab:3, title:'Prescriptive best play with live reach estimate', desc:'Each of 4 use case tiles (Conquest & Acquisition, Cross-Sell & Upsell, Loyalty & Retention, Audience Discovery) expands with audience segment, channels, budget, duration, measurement, live reach estimate.', data:'Full', notes:'Phase 1B.'},
+    {id:'AR-11', tab:3, title:'Conversational agent interface', desc:'Persistent agent on every screen; <10s in-scope responses; brand context auto-applied from session; every numeric answer cited with signal source + date range.', data:'Full', notes:'Phase 1B. Out-of-scope queries follow BR-08.'},
+    {id:'AR-12', tab:3, title:'Drag-and-drop proposal builder', desc:'Left panel of plays, right canvas for ordered selection, reorder/annotate, export as .pptx or Word/PDF proposal.', data:'Full', notes:'Phase 1B.'},
+    {id:'AR-13', tab:3, title:'Pilot plan one-pager generator', desc:'Generates a single-page 60/90-day pilot plan .docx or .pdf: client/brand, duration, segments, use cases, channels, success metrics with baselines/targets, timeline. Latis brand standards.', data:'Full', notes:'Phase 1B.'}
+  ];
+
+  var tabPill = { 1: 'pill pill-tab1', 2: 'pill pill-tab2', 3: 'pill pill-tab3' };
+  var tabLabel = { 1: 'Tab 1 · In scope', 2: 'Tab 2 · Decisions', 3: 'Tab 3 · Full data / Ph 1B' };
+  var dataPill = { '1%': 'pill pill-data-1', 'Full': 'pill pill-data-full', 'Mixed': 'pill pill-data-mixed', 'Unknown': 'pill pill-data-unk' };
+  var dataLabel = { '1%': '1% sample sufficient', 'Full': 'Full data required', 'Mixed': 'Mixed', 'Unknown': 'Unknown' };
+
+  function family(id) { return id.split('-')[0]; }
+
+  function renderSummary() {
+    var s = document.getElementById('reqs-summary');
+    if (!s) return;
+    var total = REQS.length;
+    var t1 = REQS.filter(function(r){return r.tab===1;}).length;
+    var t2 = REQS.filter(function(r){return r.tab===2;}).length;
+    var t3 = REQS.filter(function(r){return r.tab===3;}).length;
+    var full = REQS.filter(function(r){return r.data==='Full';}).length;
+    var ones = REQS.filter(function(r){return r.data==='1%';}).length;
+    s.innerHTML =
+      '<div class="reqs-stat"><div class="reqs-stat-label">Total</div><div class="reqs-stat-value">' + total + '</div><div class="reqs-stat-sub">requirements in BRD v3</div></div>' +
+      '<div class="reqs-stat"><div class="reqs-stat-label">Tab 1 · in scope</div><div class="reqs-stat-value">' + t1 + '</div><div class="reqs-stat-sub">buildable on 1% sample</div></div>' +
+      '<div class="reqs-stat"><div class="reqs-stat-label">Tab 2 · decisions</div><div class="reqs-stat-value">' + t2 + '</div><div class="reqs-stat-sub">need scoping before build</div></div>' +
+      '<div class="reqs-stat"><div class="reqs-stat-label">Tab 3 · full data</div><div class="reqs-stat-value">' + t3 + '</div><div class="reqs-stat-sub">unlocked by Stage 4 + Ph 1B</div></div>' +
+      '<div class="reqs-stat"><div class="reqs-stat-label">Need full data</div><div class="reqs-stat-value">' + full + '</div><div class="reqs-stat-sub">' + ones + ' run on 1% sample</div></div>';
+  }
+
+  var tbody = document.querySelector('#reqs-table tbody');
+  var fTab = document.getElementById('r-tab');
+  var fFam = document.getElementById('r-family');
+  var fData = document.getElementById('r-data');
+  var fSearch = document.getElementById('r-search');
+  var fReset = document.getElementById('r-reset');
+  var fCount = document.getElementById('r-count');
+  var sortState = { col: 'id', dir: 1 };
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; });
+  }
+
+  function render(list) {
+    tbody.innerHTML = list.map(function(r) {
+      var notes = r.notes ? '<div class="reqs-notes">' + escapeHtml(r.notes) + '</div>' : '';
+      return '<tr>' +
+        '<td><span class="reqs-id">' + escapeHtml(r.id) + '</span></td>' +
+        '<td><span class="' + tabPill[r.tab] + '">' + tabLabel[r.tab] + '</span></td>' +
+        '<td><div class="reqs-title">' + escapeHtml(r.title) + '</div><div class="reqs-desc">' + escapeHtml(r.desc) + '</div>' + notes + '</td>' +
+        '<td><span class="' + dataPill[r.data] + '">' + dataLabel[r.data] + '</span></td>' +
+        '</tr>';
+    }).join('');
+    fCount.textContent = list.length + ' of ' + REQS.length + ' requirements shown';
+  }
+
+  function apply() {
+    var tab = fTab.value;
+    var fam = fFam.value;
+    var dt = fData.value;
+    var q = (fSearch.value || '').toLowerCase().trim();
+    var list = REQS.filter(function(r) {
+      if (tab && String(r.tab) !== tab) return false;
+      if (fam && family(r.id) !== fam) return false;
+      if (dt && r.data !== dt) return false;
+      if (q) {
+        var blob = (r.id + ' ' + r.title + ' ' + r.desc + ' ' + (r.notes||'')).toLowerCase();
+        if (blob.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+    // Sort
+    list.sort(function(a, b) {
+      var col = sortState.col;
+      var av, bv;
+      if (col === 'id') { av = a.id; bv = b.id; }
+      else if (col === 'tab') { av = a.tab; bv = b.tab; }
+      else if (col === 'title') { av = a.title.toLowerCase(); bv = b.title.toLowerCase(); }
+      else if (col === 'data') {
+        var order = { 'Full': 0, 'Mixed': 1, '1%': 2, 'Unknown': 3 };
+        av = order[a.data]; bv = order[b.data];
+      }
+      if (av < bv) return -1 * sortState.dir;
+      if (av > bv) return 1 * sortState.dir;
+      return 0;
+    });
+    render(list);
+  }
+
+  [fTab, fFam, fData].forEach(function(el) { el && el.addEventListener('change', apply); });
+  fSearch && fSearch.addEventListener('input', apply);
+  fReset && fReset.addEventListener('click', function() {
+    fTab.value = ''; fFam.value = ''; fData.value = ''; fSearch.value = '';
+    sortState = { col: 'id', dir: 1 };
+    apply();
+  });
+
+  document.querySelectorAll('#reqs-table thead th').forEach(function(th) {
+    th.addEventListener('click', function() {
+      var col = th.dataset.sort;
+      if (!col) return;
+      if (sortState.col === col) sortState.dir *= -1;
+      else { sortState.col = col; sortState.dir = 1; }
+      apply();
+    });
+  });
+
+  renderSummary();
+  apply();
 })();
 </script>
 
