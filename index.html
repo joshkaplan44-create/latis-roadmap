@@ -247,7 +247,7 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 <div class="meta">For internal use · Charter Intelligence Ventures × Blend360 · Updated June 16, 2026</div>
 <h1>Latis Intelligence Platform</h1>
 <h2>App development roadmap · June 2026 — February 2027</h2>
-<p class="intro">Nine stages take Latis Intelligence Platform from current state through external brand-direct pilot and Phase 2 activation paths for the other use cases by February 2027. Latis is the unified platform; the <strong>Sales Deck Generator</strong> is one feature within it, used by Spectrum reps to produce client-facing sales decks. Brand-direct customers will access Latis <strong>without</strong> the Sales Deck Generator — every other intelligence function remains available to them. The split is governed by role-based access control (RBAC) in Stage 6.</p>
+<p class="intro">Nine stages take Latis Intelligence Platform from current state through external brand-direct pilot and Phase 2 activation paths for the other use cases by February 2027. Latis is the unified platform; the <strong>Sales Deck Generator</strong> is one feature within it, used by Spectrum reps to produce client-facing sales decks. At <strong>Stage 6 (RBAC, October 2026) the app forks</strong> into two tracks on the same codebase: an <strong>Internal Spectrum track</strong> where the Sales Deck Generator remains the main use case and output, and an <strong>External Brand-Direct track</strong> where the Sales Deck Generator is hidden and the brand instead pushes audiences downstream into activation paths — their own DSP (UC1), clean-room collaboration (UC2), agentic / MCP (UC3), or Spectrum Reach managed service via RADR (UC5). The fork is governed entirely by the role layer; everything below it stays unified.</p>
 <p class="intro">Stages 1 through 4 all complete by end of July so <strong>Spectrum pilot and internal feedback begins August 1, 2026</strong>. Stages 2 and 3 run <strong>concurrently</strong> from July onward — Stage 3 (feature lock + DoD signoff + LLM grounding) runs longer than Stage 2 (AWS migration). Stages 7 and 8 run <strong>concurrently</strong> from November 2026 onward — Stage 8 (Brand-Direct Pilot) runs longer than Stage 7 (Phase 1 data-dependent features). Two continuous streams — user testing and QA — run alongside every stage. Five critical milestones gate the program.</p>
 </header>
 
@@ -362,15 +362,20 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 <text x="20" y="312" font-size="12" fill="#5F5E5A" font-weight="500">6 · Roles &amp; RBAC</text>
 <rect x="622" y="298" width="76" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
 <text x="622" y="336" font-size="10" fill="#5F5E5A">Role schema · IDP integration · Sales Deck Generator gated to Spectrum role · adversarial test</text>
-<text x="20" y="358" font-size="12" fill="#5F5E5A" font-weight="500">7 · Phase 1 data-dependent features</text>
-<rect x="698" y="344" width="152" height="22" rx="2" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.8"/>
-<text x="698" y="382" font-size="10" fill="#5F5E5A">Phase 1 UC4 features unlocked by full data: BR-09 · BR-11 · BR-12 · BR-14 · AR-08 · DF-01..07</text>
-<text x="20" y="404" font-size="12" fill="#5F5E5A" font-weight="500">8 · Brand-direct pilot (concurrent with 7, longer)</text>
+<text x="20" y="358" font-size="12" fill="#5F5E5A" font-weight="500">7 · Phase 1 data-dependent features <tspan fill="#3C3489" font-weight="600">· Internal Spectrum track</tspan></text>
+<rect x="698" y="344" width="152" height="22" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.8"/>
+<text x="698" y="382" font-size="10" fill="#5F5E5A">Phase 1 UC4 features for Spectrum reps: BR-09 · BR-11 · BR-12 · BR-14 · AR-08 · DF-01..07 · SDG continues</text>
+<text x="20" y="404" font-size="12" fill="#5F5E5A" font-weight="500">8 · Brand-direct pilot <tspan fill="#085041" font-weight="600">· External Brand track</tspan></text>
 <rect x="698" y="390" width="304" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="698" y="428" font-size="10" fill="#5F5E5A">First 2 brand-direct customers (Dec) · usage metrics · expand to 5+ brands by Feb 2027</text>
-<text x="20" y="450" font-size="12" fill="#5F5E5A" font-weight="500">9 · Phase 2 features for UC1, UC2, UC3, UC5</text>
+<text x="698" y="428" font-size="10" fill="#5F5E5A">First 2 brand-direct customers (Dec) · Latis intelligence without SDG · expand to 5+ brands by Feb 2027</text>
+<text x="20" y="450" font-size="12" fill="#5F5E5A" font-weight="500">9 · Activation paths · UC1, UC2, UC3, UC5 <tspan fill="#085041" font-weight="600">· External Brand track</tspan></text>
 <rect x="774" y="436" width="228" height="22" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="774" y="474" font-size="10" fill="#5F5E5A">UC1 embeddings · UC2 clean room · UC3 MCP · UC5 Spectrum Reach activation — parallel build</text>
+<text x="774" y="474" font-size="10" fill="#5F5E5A">Push to brand DSP (UC1) · clean-room push (UC2) · MCP/agentic (UC3) · Spectrum Reach + RADR (UC5)</text>
+
+<!-- RBAC fork marker -->
+<line x1="698" y1="334" x2="698" y2="468" stroke="#A32D2D" stroke-width="1.2" stroke-dasharray="4,3"/>
+<rect x="640" y="320" width="116" height="14" rx="2" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="698" y="330" font-size="9.5" fill="#A32D2D" text-anchor="middle" font-weight="600">RBAC · app forks here</text>
 
 <line x1="318" y1="490" x2="1002" y2="490" stroke="#EFECE3" stroke-width="0.5"/>
 
@@ -439,6 +444,93 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 <div class="gate"><div class="gate-num">M4</div><div class="gate-name">UC4 Phase 1 features complete · Reach team ready</div><div class="gate-date">End of December 2026</div></div>
 <div class="gate"><div class="gate-num">M5</div><div class="gate-name">Phase 2 UC1 / UC2 / UC3 / UC5 paths in pilot</div><div class="gate-date">End of February 2027</div></div>
 </div>
+</section>
+
+<section>
+<h3 class="major">App split at RBAC · Internal Spectrum vs External Brand
+<span class="h-sub">Through Stage 5 there is one Latis app, one codebase, one feature set. At Stage 6 (RBAC, October 2026) the role layer activates and the user experience forks: Spectrum reps see one version of Latis, brand-direct users see a different one. Both share the same underlying intelligence layer — they differ in surface, gating, and what the app exports out the back.</span>
+</h3>
+
+<div class="timeline-card" style="padding: 24px 28px;">
+<svg viewBox="0 0 1080 320" preserveAspectRatio="xMidYMid meet" style="width:100%; height:auto;">
+<title>App split at RBAC — Internal Spectrum vs External Brand-Direct</title>
+<desc>Through Stage 5 the app is unified. At Stage 6 RBAC, the experience forks into an Internal Spectrum track (Sales Deck Generator continues as the main output) and an External Brand-Direct track (activation paths to DSP, clean room, RADR, MCP).</desc>
+
+<!-- Unified spine -->
+<rect x="40" y="142" width="380" height="38" rx="4" fill="#FAF8F2" stroke="#888780" stroke-width="0.6"/>
+<text x="230" y="158" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11.5" font-weight="600" fill="#111110">Unified Latis app · Stages 1–5</text>
+<text x="230" y="172" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#5F5E5A">Single feature set · Spectrum pilot users only · no role gating yet</text>
+
+<!-- RBAC gate -->
+<rect x="430" y="142" width="76" height="38" rx="4" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.8"/>
+<text x="468" y="158" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11.5" font-weight="600" fill="#A32D2D">Stage 6</text>
+<text x="468" y="172" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" fill="#A32D2D">RBAC · Oct</text>
+
+<!-- Fork lines -->
+<path d="M 506 161 L 540 88" stroke="#534AB7" stroke-width="1.2" fill="none"/>
+<path d="M 506 161 L 540 234" stroke="#0F6E56" stroke-width="1.2" fill="none"/>
+
+<!-- Internal Spectrum track -->
+<rect x="540" y="48" width="500" height="84" rx="4" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.6"/>
+<text x="556" y="68" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#3C3489">Internal · Spectrum reps</text>
+<text x="556" y="84" font-family="Plus Jakarta Sans" font-size="10.5" fill="#3C3489">Main use case &amp; output: Sales Deck Generator (UC4 + SDG)</text>
+<text x="556" y="100" font-family="Plus Jakarta Sans" font-size="10" fill="#3C3489">Full Latis intelligence + Sales Deck Generator gated on · Stage 7 Phase 1 features</text>
+<text x="556" y="115" font-family="Plus Jakarta Sans" font-size="10" fill="#3C3489">Hands off to Spectrum Reach (UC5) — managed-service media via Charter linear + CTV</text>
+<text x="556" y="128" font-family="Plus Jakarta Sans" font-size="9.5" fill="#5F5E5A" font-style="italic">Stages 7 ends Dec · Sales Deck Generator continues as primary surface beyond Feb 2027</text>
+
+<!-- External Brand-Direct track -->
+<rect x="540" y="190" width="500" height="100" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.6"/>
+<text x="556" y="210" font-family="Plus Jakarta Sans" font-size="12" font-weight="600" fill="#085041">External · Brand-direct &amp; agency</text>
+<text x="556" y="226" font-family="Plus Jakarta Sans" font-size="10.5" fill="#085041">Main use case: Latis intelligence (no Sales Deck Generator)</text>
+<text x="556" y="242" font-family="Plus Jakarta Sans" font-size="10" fill="#085041">Outputs the brand pushes downstream — built in Stage 9 (Dec–Feb):</text>
+<text x="556" y="258" font-family="Plus Jakarta Sans" font-size="10" fill="#085041">· Push to brand's DSP (UC1) · Clean-room push to Snowflake / Blockgraph (UC2)</text>
+<text x="556" y="272" font-family="Plus Jakarta Sans" font-size="10" fill="#085041">· Agentic / MCP into brand's AI stack (UC3) · Spectrum Reach + RADR managed service (UC5)</text>
+<text x="556" y="285" font-family="Plus Jakarta Sans" font-size="9.5" fill="#5F5E5A" font-style="italic">Stage 8 pilot starts Nov · activation paths layer in through Stage 9 · 5+ brands by Feb 2027</text>
+
+<!-- Track labels on left -->
+<text x="540" y="42" font-family="Plus Jakarta Sans" font-size="9" font-weight="500" fill="#5F5E5A" letter-spacing="0.05em" text-transform="uppercase">TRACK A</text>
+<text x="540" y="184" font-family="Plus Jakarta Sans" font-size="9" font-weight="500" fill="#5F5E5A" letter-spacing="0.05em" text-transform="uppercase">TRACK B</text>
+</svg>
+</div>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px;">
+
+<div style="background:var(--purple-soft); border:1px solid #C6BFF0; border-left: 3px solid var(--purple); padding: 22px 24px;">
+<div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--purple-text); font-weight:600; margin-bottom:8px;">Track A · Internal Spectrum</div>
+<div style="font-size:18px; font-weight:500; color:var(--purple-text); margin-bottom:14px;">Sales Deck Generator as the main use case</div>
+<p style="font-size:13.5px; line-height:1.6; color:var(--text-primary); margin: 0 0 14px 0;">Spectrum reps log into Latis and see the full intelligence platform <strong>plus</strong> the Sales Deck Generator. The SDG remains the primary commercial output — reps shape an audience or open a brand's profile and click "build a deck" to produce a client-facing PowerPoint for a sales meeting.</p>
+<div style="font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-tertiary); font-weight:500; margin-bottom:6px;">What the Spectrum rep gets</div>
+<ul style="margin: 0 0 14px 0; padding-left: 20px; font-size: 13px; color: var(--text-primary); line-height: 1.6;">
+<li>Full UC4 intelligence (audience discovery, category view, deep dive, Ask Latis)</li>
+<li>Sales Deck Generator — locked 10/11-slide sequence, real Foundations numbers</li>
+<li>Stage 7 Phase 1 enhancements: incremental reach, portfolio view, combined signals</li>
+<li>Audience handoff to Spectrum Reach (UC5) for managed-service media on Charter linear + CTV inventory via Freewheel / RADR</li>
+</ul>
+<div style="font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-tertiary); font-weight:500; margin-bottom:6px;">Stages that build this track</div>
+<div style="font-size:12.5px; color: var(--text-secondary);">Stage 5 (pilot) → Stage 6 (RBAC gates SDG to Spectrum role) → Stage 7 (Phase 1 features) · continues as primary surface beyond Feb 2027</div>
+</div>
+
+<div style="background:var(--teal-soft); border:1px solid #B7E2D2; border-left: 3px solid var(--teal); padding: 22px 24px;">
+<div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal-text); font-weight:600; margin-bottom:8px;">Track B · External Brand-direct</div>
+<div style="font-size:18px; font-weight:500; color:var(--teal-text); margin-bottom:14px;">Activation paths the brand pushes themselves</div>
+<p style="font-size:13.5px; line-height:1.6; color:var(--text-primary); margin: 0 0 14px 0;">Agency partners and brand-direct customers log into Latis and see the intelligence layer <strong>without</strong> the Sales Deck Generator — they don't need to build decks for themselves. They need every other capability, plus the ability to push the audiences they shape downstream into their own activation stack.</p>
+<div style="font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-tertiary); font-weight:500; margin-bottom:6px;">What the brand-direct user gets</div>
+<ul style="margin: 0 0 14px 0; padding-left: 20px; font-size: 13px; color: var(--text-primary); line-height: 1.6;">
+<li>Full UC4 intelligence scoped to their own brand only (RBAC isolation)</li>
+<li><strong>Push to their DSP (UC1)</strong> — embeddings / segment export into Amazon Ads DSP, The Trade Desk, etc.</li>
+<li><strong>Clean-room push (UC2)</strong> — Snowflake or Blockgraph data collaboration with their own first-party data</li>
+<li><strong>Agentic / MCP (UC3)</strong> — Latis exposed as a tool inside the brand's own AI workflow</li>
+<li><strong>Managed-service via Spectrum Reach (UC5)</strong> — alternative path: Latis builds the audience, Spectrum Reach runs the campaign on Charter inventory</li>
+</ul>
+<div style="font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-tertiary); font-weight:500; margin-bottom:6px;">Stages that build this track</div>
+<div style="font-size:12.5px; color: var(--text-secondary);">Stage 6 (RBAC scopes brand visibility) → Stage 8 (brand-direct pilot starts Nov, expands to 5+ brands by Feb) · Stage 9 builds the four activation paths in parallel</div>
+</div>
+
+</div>
+
+<div class="callout" style="background:var(--bg-card-soft); border-left-color:var(--gray); color:var(--text-secondary); margin-top: 22px;">
+<strong>One platform, one codebase.</strong> Both tracks share the same intelligence layer, the same metric definitions (AR-08), and the same data foundation. The fork is at the role layer — what the user can see, what they can do, and what the app exports out the back. A Spectrum rep gets the SDG; a brand-direct user gets activation push paths. RBAC verification in Stage 6 is the hard gate that makes this safe to ship externally.</div>
+
 </section>
 
 <section>
