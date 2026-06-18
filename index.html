@@ -7,6 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Firebase SDK (compat mode) -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <style>
 :root {
   --bg: #F0EDE6;
@@ -310,6 +313,15 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 .modal .field-error { font-size: 11px; color: #A32D2D; margin-top: 6px; min-height: 14px; }
 .btn-delete-req { background: none; border: 1px solid var(--border); color: var(--text-tertiary); font-size: 11px; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-family: inherit; margin-left: 6px; }
 .btn-delete-req:hover { background: #FCEBEB; color: #A32D2D; border-color: #F0BFBF; }
+
+/* Sync status indicator */
+.sync-indicator { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
+.sync-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.sync-online { background: #E1F5EE; color: #085041; }
+.sync-online .sync-dot { animation: sync-pulse 2s ease-in-out infinite; }
+.sync-offline { background: var(--gray-soft); color: var(--text-secondary); }
+.sync-error { background: #FCEBEB; color: #A32D2D; }
+@keyframes sync-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 
 /* Assignee select */
 .assign-select { font-family: inherit; font-size: 11.5px; padding: 4px 22px 4px 9px; border: 1px solid var(--border); background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%23888780' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E") no-repeat right 7px center; color: var(--text-primary); border-radius: 6px; -webkit-appearance: none; appearance: none; cursor: pointer; }
@@ -985,6 +997,7 @@ footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border
 <div><label>&nbsp;</label><button id="r-reset">Reset filters</button></div>
 <div><label>&nbsp;</label><button id="r-reset-status" title="Reset every requirement to its default status and assignment">Reset edits</button></div>
 <div class="reqs-count" id="r-count"></div>
+<div style="padding-bottom: 8px;" id="sync-status-wrap"><span class="sync-indicator sync-offline" id="sync-status"><span class="sync-dot"></span><span id="sync-status-label">Browser only</span></span></div>
 </div>
 
 <div class="add-req-bar">
@@ -1470,7 +1483,21 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
 
   function family(id) { return id.split('-')[0]; }
 
-  // ---- localStorage overrides for status + assigned + user-added requirements ----
+  // =============== Firebase configuration ===============
+  // Paste your Firebase web app config here (Project Settings → Your apps → Web app → Config)
+  // While this is the empty placeholder, the page falls back to localStorage (no shared sync).
+  var FIREBASE_CONFIG = {
+    apiKey: 'AIzaSyDEXo9bF1iPsr5XsQ8AKotq-U6xYwyHFeI',
+    authDomain: 'latis-roadmap.firebaseapp.com',
+    projectId: 'latis-roadmap',
+    storageBucket: 'latis-roadmap.firebasestorage.app',
+    messagingSenderId: '652284695432',
+    appId: '1:652284695432:web:27ecbdc99c7b952116a03d'
+  };
+  var FIRESTORE_COLLECTION = 'latis-roadmap';
+  var FIRESTORE_DOC = 'state';
+
+  // ---- localStorage caches (used offline + as fallback) ----
   var LS_STATUS = 'latis-roadmap-status-overrides-v3';
   var LS_ASSIGN = 'latis-roadmap-assigned-overrides-v1';
   var LS_USER_REQS = 'latis-roadmap-user-reqs-v1';
@@ -1484,8 +1511,8 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
   var assignOverrides = loadOverrides(LS_ASSIGN);
   function effectiveStatus(r) { return statusOverrides[r.id] || r.status; }
   function effectiveAssigned(r) { return (r.id in assignOverrides) ? assignOverrides[r.id] : (r.assigned || ''); }
-  function setStatus(id, s) { statusOverrides[id] = s; saveOverrides(LS_STATUS, statusOverrides); }
-  function setAssigned(id, a) { assignOverrides[id] = a; saveOverrides(LS_ASSIGN, assignOverrides); }
+  function setStatus(id, s) { statusOverrides[id] = s; saveOverrides(LS_STATUS, statusOverrides); pushRemoteState(); }
+  function setAssigned(id, a) { assignOverrides[id] = a; saveOverrides(LS_ASSIGN, assignOverrides); pushRemoteState(); }
 
   // ---- User-added requirements (persisted) ----
   function loadUserReqs() {
@@ -1499,6 +1526,92 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
       REQS.push(Object.assign({}, r, { userAdded: true }));
     }
   });
+
+  // =============== Firestore real-time sync ===============
+  var fb = null, db = null, stateDocRef = null, fbReady = false, suppressNextSnapshot = false;
+  var syncEl = document.getElementById('sync-status');
+  var syncLabel = document.getElementById('sync-status-label');
+  function setSyncStatus(state, text) {
+    if (!syncEl) return;
+    syncEl.className = 'sync-indicator sync-' + state;
+    if (syncLabel) syncLabel.textContent = text;
+  }
+  function applyRemoteState(data) {
+    if (!data) return;
+    if (data.statusOverrides && typeof data.statusOverrides === 'object') {
+      statusOverrides = data.statusOverrides;
+      saveOverrides(LS_STATUS, statusOverrides);
+    }
+    if (data.assignOverrides && typeof data.assignOverrides === 'object') {
+      assignOverrides = data.assignOverrides;
+      saveOverrides(LS_ASSIGN, assignOverrides);
+    }
+    if (Array.isArray(data.userReqs)) {
+      userReqs = data.userReqs;
+      saveUserReqs(userReqs);
+      // Rebuild REQS user-added entries
+      REQS = REQS.filter(function(r){ return !r.userAdded; });
+      userReqs.forEach(function(r){
+        if (!REQS.find(function(x){ return x.id === r.id; })) {
+          REQS.push(Object.assign({}, r, { userAdded: true }));
+        }
+      });
+    }
+    renderSummary && renderSummary();
+    apply && apply();
+  }
+  function pushRemoteState() {
+    if (!fbReady || !stateDocRef) return Promise.resolve();
+    suppressNextSnapshot = true;
+    return stateDocRef.set({
+      statusOverrides: statusOverrides,
+      assignOverrides: assignOverrides,
+      userReqs: userReqs,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true }).catch(function(err){
+      console.error('Firestore write failed:', err);
+      setSyncStatus('error', 'Sync error — see console');
+    });
+  }
+  function initFirebase() {
+    if (!FIREBASE_CONFIG.projectId) {
+      setSyncStatus('offline', 'Browser only — Firebase not configured');
+      return;
+    }
+    if (typeof firebase === 'undefined') {
+      setSyncStatus('error', 'Firebase SDK failed to load');
+      return;
+    }
+    try {
+      fb = firebase.initializeApp(FIREBASE_CONFIG);
+      db = firebase.firestore();
+      stateDocRef = db.collection(FIRESTORE_COLLECTION).doc(FIRESTORE_DOC);
+      setSyncStatus('online', 'Connecting…');
+      stateDocRef.onSnapshot(function(snap){
+        if (suppressNextSnapshot) { suppressNextSnapshot = false; setSyncStatus('online', 'Live · changes shared with team'); return; }
+        if (snap.exists) applyRemoteState(snap.data());
+        setSyncStatus('online', 'Live · changes shared with team');
+        fbReady = true;
+      }, function(err){
+        console.error('Firestore listen failed:', err);
+        setSyncStatus('error', 'Sync error — check console');
+      });
+      // Mark ready and push any local-only state once on first connect
+      stateDocRef.get().then(function(snap){
+        fbReady = true;
+        if (!snap.exists) {
+          // First time — seed the doc with whatever this browser has
+          pushRemoteState();
+        }
+      }).catch(function(err){
+        console.error('Firestore initial get failed:', err);
+        setSyncStatus('error', 'Sync error — check console');
+      });
+    } catch (e) {
+      console.error('Firebase init failed:', e);
+      setSyncStatus('error', 'Firebase init failed');
+    }
+  }
 
   function renderSummary() {
     var s = document.getElementById('reqs-summary');
@@ -1707,6 +1820,7 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
     REQS = REQS.filter(function(r){ return !r.userAdded; });
     userReqs = [];
     saveUserReqs(userReqs);
+    pushRemoteState();
     renderSummary();
     apply();
   });
@@ -1733,6 +1847,7 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
     if (idx >= 0) REQS.splice(idx, 1);
     delete statusOverrides[id]; saveOverrides(LS_STATUS, statusOverrides);
     delete assignOverrides[id]; saveOverrides(LS_ASSIGN, assignOverrides);
+    pushRemoteState();
     renderSummary();
     apply();
   });
@@ -1789,6 +1904,7 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
     userReqs.push(newReq);
     saveUserReqs(userReqs);
     REQS.push(newReq);
+    pushRemoteState();
     closeAddModal();
     renderSummary();
     apply();
@@ -1796,6 +1912,7 @@ Confidential. For internal use only. Companion to Latis_SalesTool_BRD_v3_0528.do
 
   renderSummary();
   apply();
+  initFirebase();
 })();
 </script>
 
